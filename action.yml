@@ -1,0 +1,55 @@
+name: "IdeaStress AI Cost & FinOps Gate"
+description: "Audit repositories for uncapped LLM API loops, token COGS, whale bankruptcy limits, and deterministic startup unit economics."
+author: "waterdolphinkiller"
+
+branding:
+  icon: "shield"
+  color: "yellow"
+
+inputs:
+  path:
+    description: "Repository directory to scan for AI SDK calls, loops, and missing max_tokens caps."
+    required: false
+    default: "."
+  price:
+    description: "Monthly subscription price (USD) used to calculate AI gross margin and whale bankruptcy limit."
+    required: false
+    default: "29"
+  fail-on-high-risk:
+    description: "Fail the CI workflow if high-risk uncapped LLM calls or negative AI unit margins are detected (true/false)."
+    required: false
+    default: "false"
+
+outputs:
+  report:
+    description: "Raw IdeaStress scan-repo JSON/text summary."
+    value: ${{ steps.scan.outputs.report }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install IdeaStress
+      shell: bash
+      run: pip install --quiet "${{ github.action_path }}"
+
+    - name: Run IdeaStress Repo Cost & FinOps Audit
+      id: scan
+      shell: bash
+      run: |
+        set +e
+        OUT=$(ideastress scan-repo "${{ inputs.path }}" --price "${{ inputs.price }}" 2>&1)
+        CODE=$?
+        echo "$OUT"
+        {
+          echo "report<<EOF"
+          echo "$OUT"
+          echo "EOF"
+        } >> "$GITHUB_OUTPUT"
+        if [ "${{ inputs.fail-on-high-risk }}" = "true" ] && [ $CODE -ne 0 ]; then
+          exit $CODE
+        fi
