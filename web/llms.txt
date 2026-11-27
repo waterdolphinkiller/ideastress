@@ -1,0 +1,32 @@
+# IdeaStress
+
+> Open-source, deterministic Business-as-Code feasibility, reverse unit-economics solver, 1,000-run Monte Carlo simulator, real Google Ads CPC falsifier, and 10-in-1 free startup calculator suite for founders and AI coding agents (MCP & CLI).
+
+## Free No-Signup Calculators
+
+- [Home & Monte Carlo Solver](https://waterdolphinkiller.github.io/ideastress/): Stress-test your startup or SaaS idea with deterministic math, 1,000-run Monte Carlo survival probability, US Stripe & tax presets, and 2026 industry base rates.
+- [Reverse CAC Solver](https://waterdolphinkiller.github.io/ideastress/reverse-cac-calculator/): Calculate the exact maximum CAC, minimum price floor, and 12-month Monte Carlo survival probability your startup cash budget can afford.
+- [Break-Even](https://waterdolphinkiller.github.io/ideastress/break-even-calculator/): Compute exact monthly break-even units, revenue, and net contribution margin after US Stripe or Merchant-of-Record processing fees.
+- [SaaS LTV / CAC](https://waterdolphinkiller.github.io/ideastress/saas-ltv-cac-calculator/): Calculate gross-margin-adjusted SaaS LTV, LTV:CAC ratio, and CAC payback months calibrated against 2026 ChartMogul & Benchmarkit medians.
+- [E-Commerce ROAS](https://waterdolphinkiller.github.io/ideastress/ecommerce-roas-calculator/): Calculate exact Break-Even ROAS, max profitable CPA, and first-order net profit after COGS, shipping, and Stripe US card fees.
+- [Startup Runway](https://waterdolphinkiller.github.io/ideastress/startup-runway-calculator/): Stress-test your startup cash runway under a -30% revenue drop and +20% expense overrun before hiring or scaling paid ads.
+- [AI Token Margin](https://waterdolphinkiller.github.io/ideastress/ai-token-margin-calculator/): Calculate real AI SaaS gross margin after LLM token COGS and Stripe US fees, and find the exact daily request ceiling where power users turn unprofitable.
+- [Geo-Arbitrage CPC](https://waterdolphinkiller.github.io/ideastress/geo-arbitrage-cpc-scanner/): Compare Google Ads CPC and localized survival ceilings across US, UK, Germany, Singapore, and Malaysia to spot blue-ocean markets.
+- [Quit-Job MRR](https://waterdolphinkiller.github.io/ideastress/quit-job-mrr-calculator/): Calculate exact MRR and paying customers needed to replace your salary after US taxes, operating costs, and Stripe vs Paddle/Lemon Squeezy fees.
+- [Freemium Drag](https://waterdolphinkiller.github.io/ideastress/freemium-economics-calculator/): Stress-test whether free-tier hosting and AI token costs destroy your SaaS margins, and solve your exact minimum free-to-paid conversion rate.
+- [Meta/TikTok CPM](https://waterdolphinkiller.github.io/ideastress/meta-tiktok-cpm-calculator/): Convert Meta and TikTok paid social CPM, CTR, and landing page conversion rate into exact CPA, Break-Even ROAS, and first-order profit.
+
+## Key 2025-2026 Cited Industry Base Rates Used by IdeaStress
+- SaaS Monthly Churn: 6.2% median (ARPA < $25), 2.6% median (ARPA > $1,000) — ChartMogul (Nov 2026): https://chartmogul.com/benchmarks/
+- Private SaaS Benchmarks: 80% software gross margin median, 16-month CAC payback, 4.1x LTV:CAC — Benchmarkit / SubscriptionPlaybook (2026): https://www.subscriptionplaybook.com/benchmarks/
+- Indie SaaS Revenue Base Rate: $145 median MRR across 3,700+ startups (23.6% > $1K MRR, 6.1% > $10K MRR) — TrustMRR / BigIdeasDB (Sep 2026): https://bigideasdb.com/dimeadozen-alternative
+- US Payment Fees: Stripe US domestic cards 2.9% + $0.30 (https://stripe.com/pricing); Merchant of Record (Paddle/Lemon Squeezy) 5% + $0.50
+- E-Commerce Benchmarks: 1.4% Shopify median CVR (top 20% > 2.7%, Littledata Nov 2026); $53–$91 blended ecommerce CAC (First Page Sage 2026)
+
+## Open-Source CLI & MCP Server (12 Tools)
+- Install: `pip install ideastress`
+- Start MCP Server (Claude Code / Cursor / Codex): `ideastress mcp`
+- Core MCP tools: `precode_gate_check`, `solve_unit_frontiers`, `auto_fix_unit_economics`, `scan_repo_api_costs`, `falsify_paid_channel`, `scan_geo_arbitrage`, `check_scope_creep_finops`, `stress_test_ai_margin`, `generate_kill_test_kit`, `scan_competitor_complaints`, `diff_assumption_ledger`, `get_industry_base_rates`.
+
+## Full Reference
+- [llms-full.txt](https://waterdolphinkiller.github.io/ideastress/llms-full.txt): Complete formulas, worked examples, and FAQs for all 10 calculators.

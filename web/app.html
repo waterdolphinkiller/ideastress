@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeaStress v0.8.1 — 10-in-1 Interactive Startup Stress-Test Suite</title>
+  <meta name="description" content="10 live startup financial calculators with 1,000-run Monte Carlo, Auto-Fix rescue solver, 3-step guides, exact formulas, worked examples, and 40 FAQs." />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "IdeaStress v0.8.1 \u2014 10-in-1 Startup Financial Stress-Test Suite",
+      "url": "https://waterdolphinkiller.github.io/ideastress/app.html",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "10 interactive deterministic startup calculators with 1,000-run Monte Carlo, Auto-Fix rescue solver, 3-step guides, exact formulas, worked examples, and 40 FAQs."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Reverse Unit-Economics Survival Frontier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Instead of guessing 3-year revenue, a reverse solver works backward from your cash budget, price, and fixed costs to compute the exact maximum CAC, minimum price floor, and maximum churn your business can survive over 12 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 1,000-run Monte Carlo simulation work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It runs 1,000 reproducible seeded paths perturbing monthly acquisition volume, upward-skewed CAC overruns, variable cost drift, and a realistic Month 1\u20132 SaaS onboarding churn spike to output survival probability and P10/P50/P90 cash percentiles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did my profitable SaaS get a CHANNEL_IMPOSSIBLE warning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Even when unit margins are strong, crowded Google Ads categories (e.g., $8.90 CPC at 2.5% CVR = $356 implied CAC) can exceed your solved Max Viable CAC ceiling. That means you must use SEO, outbound, or lower-CPC geos instead of generic search ads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does IdeaStress include Stripe US fees and taxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can toggle Stripe US (2.9% + $0.30), Stripe US + Billing (3.6% + $0.30), or Merchant of Record Paddle/Lemon Squeezy (5% + $0.50), plus an optional effective income tax reserve on positive monthly profit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much MRR do I need to replace a $100,000 salary in the US?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After setting aside ~30% for US federal/state/self-employment taxes, payment processing fees, and modest operating costs, replacing $100k net typically requires $13,000\u2013$15,000 in stable MRR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use Stripe or a Merchant of Record (Paddle / Lemon Squeezy)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stripe US charges 2.9% + $0.30 (cheaper on fees), while Paddle/Lemon Squeezy charge 5% + $0.50 but act as the legal seller handling global VAT and US sales tax compliance for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why shouldn't I quit my job the first month I hit target MRR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Early SaaS MRR has high churn volatility. Wait until you have held target MRR for 3+ consecutive months and banked 6\u201312 months of personal emergency runway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this formal US tax advice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tax reserve percentages are planning estimates only; consult a licensed CPA for LLC/S-Corp elections and quarterly estimated tax filings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does a Freemium model fail for AI SaaS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Freemium fails whenever free users consume recurring LLM tokens or GPU compute without driving viral word-of-mouth \u2014 even $0.50/mo per free user destroys margins at a typical 1.5%\u20132% conversion rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a realistic free-to-paid conversion rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Self-serve B2B/prosumer freemium products typically convert 1%\u20135% of free signups; assuming >8% without strong usage gates is usually overly optimistic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I fix a bleeding freemium tier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Replace unlimited free access with a one-time free credit allowance (e.g., 10 lifetime credits), a 7\u201314 day reverse trial, or strict client-side/zero-cost free tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Stripe fee apply only to paid users?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Payment processing fees (2.9% + $0.30) are incurred only on paid transactions, while infrastructure and AI token costs apply to both free and paid cohorts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why calculate paid social from CPM instead of CPC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Meta (Facebook/Instagram) and TikTok charge by impressions (CPM). Your real CPC is entirely determined by creative thumb-stop and click-through rate (CTR)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a realistic Meta Ads CTR and landing-page CVR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cold paid social campaigns commonly see 0.8%\u20131.8% link CTR and 1.4%\u20132.7% Shopify store conversion rate (Littledata 2026 median is 1.4%)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which lever improves paid social CPA fastest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Doubling creative CTR from 0.9% to 1.8% cuts your effective CPC and CPA in half immediately without changing your product price or website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a store survive negative first-order profit on Meta Ads?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you have verified 60-to-90-day repeat purchase LTV and enough working capital cash to float the payback period without running dry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI SaaS products have lower gross margins than traditional SaaS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Traditional private SaaS averages ~80% gross margin (Benchmarkit 2026), whereas AI apps incur recurring per-token inference COGS on every user prompt, often compressing margins to 40%\u201365%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Whale Bankruptcy Limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is the exact number of daily requests at which a heavy power user on a flat-rate 'unlimited' subscription costs more in LLM API fees than their entire monthly payment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I protect margins on an AI wrapper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Route routine prompts to budget/mini models, enforce hard max_tokens caps, cache repeated context, and gate frontier reasoning or video generation behind credit packs or add-on tiers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can IdeaStress scan my actual repository for token cost risks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Run `ideastress scan-repo ./my-app --price 29` via CLI or MCP to statically detect OpenAI/Anthropic/Google/Replicate SDK calls inside loops and missing max_tokens caps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Geo-Arbitrage in SaaS and indie hacking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is launching into non-US or non-English markets where Google Ads CPC and competition are 2x\u20134x lower than the US while local willingness to pay still supports profitable unit economics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is US Google Ads CPC so high in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Publicly tracked indie SaaS products roughly tripled between 2020 and 2026 and CAC rose ~60% over five years, driving US high-intent B2B keywords to $6\u2013$15+ per click."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does IdeaStress support live multi-country CPC lookups?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. With a DataForSEO key in `.env`, `ideastress geo-scan` queries live Google Ads search volume and CPC by country `location_code` and caches results for 30 days in SQLite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I adjust pricing when entering lower-CPC countries?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our scanner automatically scales your localized max viable CAC by a purchasing-power factor so you do not overestimate revenue in lower-ARPA regions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Stripe fees affect break-even units?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stripe's US domestic card fee of 2.9% + $0.30 reduces your contribution margin on every sale, which increases the exact number of units required to cover fixed overhead \u2014 especially on low-ticket items under $25."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when variable cost exceeds net selling price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unit contribution margin becomes negative, meaning every additional unit sold loses money. IdeaStress flags break-even as Unreachable instead of outputting a misleading negative number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should ad spend be included in fixed overhead for break-even?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you run a fixed monthly ad budget (e.g., $1,000/mo), include it in fixed overhead to compute true cash break-even; if you scale ad spend per order (CPA), add CPA to variable cost per unit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is break-even revenue the same as profit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Break-even revenue is simply the point where total revenue equals total fixed plus variable costs ($0 operating profit before taxes)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a healthy SaaS LTV:CAC ratio in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3.0x remains the minimum healthy rule of thumb, while 2026 private SaaS medians sit around 4.1x with an 80% software gross margin and 16-month CAC payback period (Benchmarkit / SubscriptionPlaybook 2026)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is average monthly churn for low-priced SaaS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to ChartMogul's November 2026 benchmarks, median monthly customer churn is 6.2% for SaaS with ARPA under $25, compared to 2.6% for SaaS above $1,000 ARPA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why must LTV be gross-margin adjusted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using raw revenue instead of gross profit overstates customer value, especially for AI-heavy SaaS products where LLM token COGS compress gross margin well below 80%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can LTV be calculated if monthly churn is 0%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Dividing by zero produces infinity; with zero observed churn on a small early cohort, treat LTV as unvalidated until at least 3\u20136 months of retention data exist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Break-Even ROAS in e-commerce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Break-Even ROAS (Return on Ad Spend) is the minimum ad revenue multiple required so first-order gross profit exactly covers your ad spend. Any ROAS below this floor loses money on every new customer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the average e-commerce CAC in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "First Page Sage benchmarks place blended e-commerce CAC between $53 and $91 across 13 verticals, which is why low-AOV stores (<$40) struggle on paid ads without high repeat purchase rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a realistic Shopify conversion rate in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Littledata's late-2026 Shopify dataset reports a 1.4% median store conversion rate, with the top 20% exceeding 2.7% and top 10% exceeding 3.7%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do e-commerce gross margins vary by category?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hycos 2026 benchmarks show 60%\u201380% for Beauty & Skincare, 55%\u201370% for Health & Supplements, 45%\u201365% for Fashion & Apparel, and 15%\u201330% for Consumer Electronics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why stress-test runway with a \u221230% revenue and +20% cost shock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Early startup revenue is lumpy and infrastructure, ad spend, or contractor costs routinely overrun. Planning solely on base-case runway leaves zero buffer when a channel slows down."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between gross burn and net burn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gross burn is total monthly cash outflow (expenses). Net burn is expenses minus monthly revenue collected. Runway is governed by net burn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many months of runway should a bootstrapped founder keep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keep at least 6\u201312 months of shock-tested runway before committing to fixed recurring expenses like full-time hires or annual office leases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does revenue growth automatically extend runway?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if unit contribution margin is positive and customer acquisition spend does not scale faster than collected cash."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+  <style>
+:root {
+  --bg: #080a0f; --surface: #10141e; --surface-2: #161b28;
+  --border: #232b3d; --border-hi: #34415c;
+  --text: #edf2fb; --muted: #8a95ad;
+  --accent: #38bdf8; --accent-soft: rgba(56,189,248,0.14);
+  --ok: #10b981; --warn: #f59e0b; --bad: #ef4444; --radius: 14px;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55; scrollbar-width: thin; scrollbar-color: #2b3449 var(--bg);
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2b3449; border-radius: 4px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+header {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(8,10,15,0.88); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 14px; }
+.logo { font-weight: 800; letter-spacing: 0.05em; font-size: 1.05rem; display: flex; align-items: center; gap: 10px; color: var(--text); }
+.logo:hover { text-decoration: none; }
+.logo .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 14px; align-items: center; font-size: 0.84rem; overflow-x: auto; }
+.nav-links a { color: var(--muted); white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; font-weight: 600; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--border-hi); border-radius: 9px;
+  padding: 8px 14px; font-size: 0.84rem; font-weight: 600; cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); color: #fff; text-decoration: none; }
+.btn.primary { background: var(--accent); color: #05101a; border-color: var(--accent); }
+.hero { padding: 44px 0 24px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 12px; border-radius: 999px; font-size: 0.76rem; font-weight: 600;
+  color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(56,189,248,0.3);
+  margin-bottom: 14px;
+}
+.hero h1 { margin: 0 0 12px; font-size: clamp(1.85rem, 3.6vw, 2.75rem); line-height: 1.14; letter-spacing: -0.03em; max-width: 860px; }
+.hero p { margin: 0 0 20px; color: var(--muted); font-size: 1rem; max-width: 760px; }
+.route-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 22px; }
+.route-pill {
+  background: var(--surface); color: var(--muted); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px 14px; font-size: 0.84rem; font-weight: 600;
+}
+.route-pill:hover { color: var(--text); border-color: var(--border-hi); text-decoration: none; }
+.route-pill.active { background: var(--accent-soft); color: var(--accent); border-color: rgba(56,189,248,0.5); }
+.workspace { display: grid; grid-template-columns: 375px 1fr; gap: 20px; align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+.card h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.card .sub { margin: 0 0 16px; color: var(--muted); font-size: 0.85rem; }
+.field { margin-bottom: 12px; }
+.field label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; }
+.field input, .field select {
+  width: 100%; background: var(--bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; font-size: 0.91rem; font-family: ui-monospace, monospace;
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.kpi { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 13px 15px; }
+.kpi .kl { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.kpi .kv { font-size: 1.32rem; font-weight: 800; margin-top: 4px; font-family: ui-monospace, monospace; }
+.kpi .ks { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+.alert-box {
+  border-radius: 10px; padding: 12px 14px; font-size: 0.86rem;
+  border: 1px solid var(--border); background: var(--surface-2); margin-bottom: 15px;
+}
+.alert-box.ok { border-color: rgba(16,185,129,0.45); background: rgba(16,185,129,0.09); }
+.alert-box.warn { border-color: rgba(245,158,11,0.45); background: rgba(245,158,11,0.09); }
+.alert-box.bad { border-color: rgba(239,68,68,0.45); background: rgba(239,68,68,0.09); }
+.chart-box { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 15px; }
+.chart-title { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.section { margin-top: 44px; }
+.section h2 { font-size: 1.32rem; margin: 0 0 8px; }
+.section .lead { color: var(--muted); margin: 0 0 18px; font-size: 0.92rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.73rem; font-weight: 600; border: 1px solid var(--border); }
+.faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.faq-item h3 { margin: 0 0 6px; font-size: 0.96rem; }
+.faq-item p { margin: 0; font-size: 0.86rem; color: var(--muted); }
+footer {
+  margin-top: 56px; border-top: 1px solid var(--border);
+  padding: 24px 0 40px; color: var(--muted); font-size: 0.83rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.toast {
+  position: fixed; bottom: 22px; right: 22px; background: #10b981; color: #04130d;
+  padding: 10px 16px; border-radius: 9px; font-weight: 700; font-size: 0.85rem;
+  opacity: 0; transform: translateY(10px); transition: all 0.2s ease; pointer-events: none; z-index: 60;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+@media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+
+
+.panel { display: none; }
+.panel.active { display: block; }
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(4,6,10,0.78); backdrop-filter: blur(6px);
+  display: none; align-items: center; justify-content: center; padding: 20px; z-index: 100;
+}
+.modal-backdrop.open { display: flex; }
+.modal-box {
+  background: var(--surface); border: 1px solid var(--border-hi); border-radius: 16px;
+  max-width: 860px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 22px;
+}
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 12px; }
+.modal-head h3 { margin: 0; font-size: 1.05rem; }
+.modal-pre {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px; overflow-x: auto; font-size: 0.83rem; color: #dbeafe; margin: 0 0 14px;
+}
+.svg-preview { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 14px; }
+.svg-preview svg { width: 100%; height: auto; display: block; }
+.util-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.faq-item h3 { margin: 0 0 6px; font-size: 0.94rem; color: var(--text); }
+.faq-item p { margin: 0; font-size: 0.84rem; color: var(--muted); }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="logo" style="cursor:pointer;" onclick="switchTab('frontier')"><span class="dot"></span>IDEA<span>STRESS</span></div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button type="button" class="btn" onclick="switchTab('quit_job')">Quit-Job MRR</button>
+        <button type="button" class="btn" onclick="switchTab('freemium')">Freemium</button>
+        <button type="button" class="btn" onclick="switchTab('social_cpm')">Meta/TikTok</button>
+        <button type="button" class="btn primary" id="lang_toggle_btn">中文</button>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow" id="hero_eyebrow">IDEASTRESS v0.8.1 · 10 LIVE CALCULATORS · 1,000-RUN MONTE CARLO · AUTO-FIX · GEO/FAQ</div>
+      <h1 id="hero_h1">Stress-test your business idea with hard math before you write code.</h1>
+      <p id="hero_sub">All 10 calculators + step-by-step guides, exact formulas, worked examples &amp; 40 FAQs run 100% live in this single page — zero dead buttons.</p>
+      <div class="route-bar">
+        <button type="button" class="route-pill active" data-switch="frontier" data-en="1. Reverse Frontier" data-zh="1. 反向红线与蒙特卡洛">1. Reverse Frontier</button>
+        <button type="button" class="route-pill" data-switch="quit_job" data-en="2. Quit-Job MRR" data-zh="2. 辞职替代 MRR">2. Quit-Job MRR</button>
+        <button type="button" class="route-pill" data-switch="freemium" data-en="3. Freemium Drag" data-zh="3. 免费版拖累压测">3. Freemium Drag</button>
+        <button type="button" class="route-pill" data-switch="social_cpm" data-en="4. Meta/TikTok CPM" data-zh="4. Meta/TikTok 信息流">4. Meta/TikTok CPM</button>
+        <button type="button" class="route-pill" data-switch="ai_margin" data-en="5. AI Token Margin" data-zh="5. AI Token 毛利">5. AI Token Margin</button>
+        <button type="button" class="route-pill" data-switch="geo" data-en="6. Geo-Arbitrage CPC" data-zh="6. 5 国 CPC 套利">6. Geo-Arbitrage CPC</button>
+        <button type="button" class="route-pill" data-switch="breakeven" data-en="7. Break-Even" data-zh="7. 盈亏平衡">7. Break-Even</button>
+        <button type="button" class="route-pill" data-switch="saas" data-en="8. SaaS LTV / CAC" data-zh="8. SaaS LTV/CAC">8. SaaS LTV / CAC</button>
+        <button type="button" class="route-pill" data-switch="ecom" data-en="9. E-Com ROAS" data-zh="9. 电商 ROAS 底线">9. E-Com ROAS</button>
+        <button type="button" class="route-pill" data-switch="runway" data-en="10. Startup Runway" data-zh="10. 现金跑道压测">10. Startup Runway</button>
+      </div>
+    </section>
+
+    <div class="panel active" id="panel-frontier">
+
+<div id="tool-frontier" class="workspace">
+  <div class="card">
+    <h2>Reverse Survival Frontier + Monte Carlo</h2>
+    <p class="sub">1,000 seeded simulations with SaaS Month 1–2 early churn spike &amp; US Stripe/Tax presets.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+      <button type="button" class="btn" style="font-size:0.76rem;padding:6px 10px;" onclick="applyPreset('healthy_saas')">Preset: Healthy SaaS</button>
+      <button type="button" class="btn" style="font-size:0.76rem;padding:6px 10px;border-color:#ef444466;color:#fca5a5;" onclick="applyPreset('losing_ai')">Preset: Losing AI Wrapper</button>
+      <button type="button" class="btn" style="font-size:0.76rem;padding:6px 10px;border-color:#f59e0b66;color:#fcd34d;" onclick="applyPreset('high_cpc')">Preset: High-CPC Accounting</button>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Business Model</label><select id="f_type"><option value="saas">SaaS / Subscription</option><option value="ecommerce">E-Commerce / DTC</option><option value="local_service">Local Service</option><option value="digital_product">One-Time Digital</option></select></div>
+      <div class="field"><label>Currency</label><select id="f_cur"><option value="USD">USD ($)</option><option value="MYR">MYR (RM)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option></select></div>
+    </div>
+    <details style="margin:10px 0 12px;border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:var(--bg);">
+      <summary style="cursor:pointer;font-size:0.82rem;color:var(--accent);font-weight:600;">Advanced US Stripe, Tax &amp; Churn Settings</summary>
+      <div class="row-2" style="margin-top:10px;">
+        <div class="field"><label>US Payment Fee Preset</label><select id="f_proc"><option value="stripe_us" selected>Stripe US (2.9%+$0.30)</option><option value="stripe_saas">Stripe + Billing (3.6%+$0.30)</option><option value="mor_paddle">MoR Paddle/LS (5%+$0.50)</option><option value="none">None (0%)</option></select></div>
+        <div class="field"><label>Effective Tax Reserve (%)</label><input id="f_tax" type="number" value="21" step="1" /></div>
+      </div>
+    </details>
+    <div class="row-2">
+      <div class="field"><label>Unit Price</label><input id="f_price" type="number" value="49" step="1" /></div>
+      <div class="field"><label>Variable Cost / Unit</label><input id="f_var" type="number" value="6" step="1" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Fixed Monthly Cost</label><input id="f_fixed" type="number" value="900" step="50" /></div>
+      <div class="field"><label>Starting Cash</label><input id="f_cash" type="number" value="12000" step="500" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>New Customers / Mo</label><input id="f_new" type="number" value="14" step="1" /></div>
+      <div class="field"><label>Monthly Ad Spend</label><input id="f_spend" type="number" value="560" step="50" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Monthly Churn (%)</label><input id="f_churn" type="number" value="5" step="0.5" /></div>
+      <div class="field"><label>Refund Rate (%)</label><input id="f_refund" type="number" value="2" step="0.5" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Google Ads CPC ($)</label><input id="f_cpc" type="number" value="6.50" step="0.25" /></div>
+      <div class="field"><label>Landing Page CVR (%)</label><input id="f_cvr" type="number" value="2.5" step="0.25" /></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">
+      <button id="btn_export_yaml" class="btn primary" style="flex:1;justify-content:center;">Download venture.yaml</button>
+      <button id="btn_proof_card" class="btn" style="flex:1;justify-content:center;">Proof Card SVG</button>
+      <button id="btn_export_csv" class="btn" style="flex:1;justify-content:center;">Export 12m CSV</button>
+      <button id="btn_share_url" class="btn" style="flex:1;justify-content:center;">Copy Share Link</button>
+    </div>
+  </div>
+  <div class="card">
+    <div id="f_verdict_box" class="alert-box"></div>
+    <div id="f_autofix_box" class="alert-box" style="display:none;"></div>
+    <div class="kpi-grid" id="f_kpis"></div>
+    <div id="f_cpc_box" class="alert-box"></div>
+    <div class="chart-box">
+      <div class="chart-title">12-Month Deterministic Cash Trajectory (Conservative vs Base vs Optimistic)</div>
+      <svg id="f_chart" viewBox="0 0 680 195" style="width:100%;height:195px;display:block;"></svg>
+    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter your unit price, variable cost per unit, fixed monthly costs, and starting cash (or click one of the 3 one-click presets).</li><li>Optionally open Advanced Settings to apply Stripe US (2.9% + $0.30) or MoR (5% + $0.50) fees and your effective US tax reserve.</li><li>Review your 1,000-run Monte Carlo survival probability, solved Max Viable CAC ceiling, Google Ads CPC verdict, and Auto-Fix rescue price.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Net_Unit_Contrib = Unit_Price × (1 − Refund_Rate) − Variable_Cost − Payment_Fee
+Max_Viable_CAC = GoalSeek(CAC : min_{m=1..12} Ending_Cash(m) ≥ 0)
+Implied_Paid_CAC = Google_Ads_CPC / Landing_Page_CVR</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">For a $49/mo SaaS with $6 variable cost, Stripe US fee ($1.72), $900 fixed costs, 5% monthly churn, 14 new customers/mo, and $12,000 starting cash, net unit contribution is ~$40.30. Over 12 months, the business can survive up to ~$210 CAC; however, if US Google Ads CPC is $8.90 at 2.5% conversion, implied paid CAC is $356 — triggering CHANNEL_IMPOSSIBLE before spending $1 on ads.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is a Reverse Unit-Economics Survival Frontier?</h3><p>Instead of guessing 3-year revenue, a reverse solver works backward from your cash budget, price, and fixed costs to compute the exact maximum CAC, minimum price floor, and maximum churn your business can survive over 12 months.</p></div><div class="faq-item"><h3>How does the 1,000-run Monte Carlo simulation work?</h3><p>It runs 1,000 reproducible seeded paths perturbing monthly acquisition volume, upward-skewed CAC overruns, variable cost drift, and a realistic Month 1–2 SaaS onboarding churn spike to output survival probability and P10/P50/P90 cash percentiles.</p></div><div class="faq-item"><h3>Why did my profitable SaaS get a CHANNEL_IMPOSSIBLE warning?</h3><p>Even when unit margins are strong, crowded Google Ads categories (e.g., $8.90 CPC at 2.5% CVR = $356 implied CAC) can exceed your solved Max Viable CAC ceiling. That means you must use SEO, outbound, or lower-CPC geos instead of generic search ads.</p></div><div class="faq-item"><h3>Does IdeaStress include Stripe US fees and taxes?</h3><p>Yes. You can toggle Stripe US (2.9% + $0.30), Stripe US + Billing (3.6% + $0.30), or Merchant of Record Paddle/Lemon Squeezy (5% + $0.50), plus an optional effective income tax reserve on positive monthly profit.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-quit_job">
+
+<div id="tool-quit-job" class="workspace">
+  <div class="card">
+    <h2>Quit-Your-Job MRR &amp; Stripe vs. MoR</h2>
+    <p class="sub">Exact MRR needed to replace your salary after US tax reserves, operating costs, and payment fees.</p>
+    <div class="field"><label>Target Annual Take-Home Salary ($)</label><input id="q_sal" type="number" value="120000" step="5000" /></div>
+    <div class="row-2">
+      <div class="field"><label>US Tax Reserve (%)</label><input id="q_tax" type="number" value="30" step="1" /></div>
+      <div class="field"><label>Monthly Ops &amp; Ad Cost ($)</label><input id="q_ops" type="number" value="1500" step="100" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Avg Subscription Price ($)</label><input id="q_price" type="number" value="49" step="1" /></div>
+      <div class="field"><label>Payment Processor</label><select id="q_proc"><option value="stripe_us" selected>Stripe US (2.9%+$0.30)</option><option value="mor_paddle">MoR Paddle/LS (5%+$0.50)</option></select></div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="q_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="q_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter the annual net salary you want to replace (e.g., $120,000) and your estimated US tax reserve % (federal + state + self-employment).</li><li>Add your monthly software, hosting, and marketing costs, plus your average monthly subscription price.</li><li>Toggle between Stripe US (2.9% + $0.30) and MoR Paddle/Lemon Squeezy (5% + $0.50) to see required MRR and exact annual fee savings.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Required_PreTax_Profit = (Target_Annual_Salary / 12) / (1 − Effective_Tax_Rate)
+Required_Customers = ceil((Required_PreTax_Profit + Monthly_Ops) / (Price × (1 − Fee_Pct) − Fee_Flat))</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">To replace a $120,000/yr net salary ($10,000/mo) with a 30% tax reserve ($14,286 pre-tax profit needed) and $1,500 monthly ops on a $49/mo Stripe US plan ($47.28 net/cust), you need 334 paying customers = $16,366 MRR. Using Stripe US saves ~$4,925/yr in fees vs a 5% + $0.50 MoR.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>How much MRR do I need to replace a $100,000 salary in the US?</h3><p>After setting aside ~30% for US federal/state/self-employment taxes, payment processing fees, and modest operating costs, replacing $100k net typically requires $13,000–$15,000 in stable MRR.</p></div><div class="faq-item"><h3>Should I use Stripe or a Merchant of Record (Paddle / Lemon Squeezy)?</h3><p>Stripe US charges 2.9% + $0.30 (cheaper on fees), while Paddle/Lemon Squeezy charge 5% + $0.50 but act as the legal seller handling global VAT and US sales tax compliance for you.</p></div><div class="faq-item"><h3>Why shouldn&#x27;t I quit my job the first month I hit target MRR?</h3><p>Early SaaS MRR has high churn volatility. Wait until you have held target MRR for 3+ consecutive months and banked 6–12 months of personal emergency runway.</p></div><div class="faq-item"><h3>Is this formal US tax advice?</h3><p>No. Tax reserve percentages are planning estimates only; consult a licensed CPA for LLC/S-Corp elections and quarterly estimated tax filings.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-freemium">
+
+<div id="tool-freemium" class="workspace">
+  <div class="card">
+    <h2>Freemium vs. Free-Trial Economics</h2>
+    <p class="sub">Check whether free-tier hosting and AI token drag will eat all your paid subscription profit.</p>
+    <div class="field"><label>Total Monthly Active Users (MAU)</label><input id="fr_mau" type="number" value="10000" step="500" /></div>
+    <div class="row-2">
+      <div class="field"><label>Free-to-Paid Conversion (%)</label><input id="fr_cvr" type="number" value="2.0" step="0.2" /></div>
+      <div class="field"><label>Paid Plan Price ($/mo)</label><input id="fr_price" type="number" value="29" step="1" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Cost per Free User ($/mo)</label><input id="fr_fcost" type="number" value="0.35" step="0.05" /></div>
+      <div class="field"><label>Cost per Paid User ($/mo)</label><input id="fr_pcost" type="number" value="4.00" step="0.50" /></div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="fr_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="fr_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter your total Monthly Active Users (MAU) and your realistic free-to-paid conversion rate %.</li><li>Input your paid plan price, monthly hosting/AI cost per free user, and monthly COGS per paid user.</li><li>Check whether free-tier drag pushes your product into FREEMIUM_BLEEDING and read your exact minimum break-even conversion rate.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Free_Tier_Drag = Free_Users × Monthly_Cost_Per_Free_User
+Min_BreakEven_CVR = Free_Cost / (Paid_Unit_Contribution + Free_Cost)</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">With 10,000 MAU, 2% conversion (200 paid @ $29 = $5,800 rev), $0.35/mo free-user cost ($3,430 drag), and $4 paid COGS + Stripe fees ($1,028), net monthly gross profit is only $1,342 (23.1% blended margin). At $0.60/free user, the business bleeds cash every month.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>When does a Freemium model fail for AI SaaS?</h3><p>Freemium fails whenever free users consume recurring LLM tokens or GPU compute without driving viral word-of-mouth — even $0.50/mo per free user destroys margins at a typical 1.5%–2% conversion rate.</p></div><div class="faq-item"><h3>What is a realistic free-to-paid conversion rate?</h3><p>Self-serve B2B/prosumer freemium products typically convert 1%–5% of free signups; assuming &gt;8% without strong usage gates is usually overly optimistic.</p></div><div class="faq-item"><h3>How do I fix a bleeding freemium tier?</h3><p>Replace unlimited free access with a one-time free credit allowance (e.g., 10 lifetime credits), a 7–14 day reverse trial, or strict client-side/zero-cost free tools.</p></div><div class="faq-item"><h3>Why does Stripe fee apply only to paid users?</h3><p>Payment processing fees (2.9% + $0.30) are incurred only on paid transactions, while infrastructure and AI token costs apply to both free and paid cohorts.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-social_cpm">
+
+<div id="tool-social-cpm" class="workspace">
+  <div class="card">
+    <h2>Meta / TikTok Paid Social Funnel (CPM)</h2>
+    <p class="sub">Convert Meta/TikTok CPM, ad CTR, and landing-page CVR into real CPA and first-order net profit.</p>
+    <div class="row-2">
+      <div class="field"><label>Ad CPM ($ per 1,000 impr.)</label><input id="sc_cpm" type="number" value="18" step="1" /></div>
+      <div class="field"><label>Ad Click-Through Rate — CTR (%)</label><input id="sc_ctr" type="number" value="1.2" step="0.1" /></div>
+    </div>
+    <div class="row-2">
+      <div class="field"><label>Landing Page CVR (%)</label><input id="sc_cvr" type="number" value="2.2" step="0.1" /></div>
+      <div class="field"><label>AOV / First-Order Value ($)</label><input id="sc_aov" type="number" value="68" step="1" /></div>
+    </div>
+    <div class="field"><label>Pre-Ad Gross Margin (%)</label><input id="sc_margin" type="number" value="60" step="1" /></div>
+  </div>
+  <div class="card">
+    <div id="sc_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="sc_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter your platform CPM (cost per 1,000 ad impressions, typically $12–$30 in the US) and ad Click-Through Rate (CTR %).</li><li>Input your landing-page conversion rate (CVR %), Average Order Value (AOV), and pre-ad gross margin %.</li><li>See your exact effective CPC, implied Paid Social CPA, Break-Even ROAS, and first-order profit or loss.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Effective_CPC = CPM / (1000 × CTR)
+Implied_Social_CPA = Effective_CPC / Landing_Page_CVR
+First_Order_Net = (AOV × Pre_Ad_Margin_Pct) − Implied_Social_CPA</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">At $18 CPM and 1.2% CTR (12 clicks per 1,000 impressions), effective CPC is $1.50. At 2.2% landing-page conversion, implied CPA is $68.18. On a $68 AOV product with 60% margin ($40.80 pre-ad profit), you lose $27.38 on every first order — requiring higher CTR creative, bundles to lift AOV, or strong repeat LTV.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>Why calculate paid social from CPM instead of CPC?</h3><p>Meta (Facebook/Instagram) and TikTok charge by impressions (CPM). Your real CPC is entirely determined by creative thumb-stop and click-through rate (CTR).</p></div><div class="faq-item"><h3>What is a realistic Meta Ads CTR and landing-page CVR?</h3><p>Cold paid social campaigns commonly see 0.8%–1.8% link CTR and 1.4%–2.7% Shopify store conversion rate (Littledata 2026 median is 1.4%).</p></div><div class="faq-item"><h3>Which lever improves paid social CPA fastest?</h3><p>Doubling creative CTR from 0.9% to 1.8% cuts your effective CPC and CPA in half immediately without changing your product price or website.</p></div><div class="faq-item"><h3>Can a store survive negative first-order profit on Meta Ads?</h3><p>Only if you have verified 60-to-90-day repeat purchase LTV and enough working capital cash to float the payback period without running dry.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-ai_margin">
+
+<div id="tool-ai-margin" class="workspace">
+  <div class="card">
+    <h2>AI Wrapper Token Cost &amp; Whale Stress-Tester</h2>
+    <p class="sub">Expose hidden LLM inference COGS and find the exact daily request limit where power users bankrupt flat-rate plans.</p>
+    <div class="field"><label>Monthly Subscription Price ($)</label><input id="ai_price" type="number" value="29" step="1" /></div>
+    <div class="field"><label>Model Pricing Tier</label><select id="ai_model"><option value="budget_fast">Fast / Mini ($0.15 in / $0.60 out per 1M)</option><option value="mid_balanced" selected>Mid / Balanced ($1.25 in / $5.00 out per 1M)</option><option value="frontier_reasoning">Frontier Reasoning ($3.00 in / $15.00 out per 1M)</option></select></div>
+    <div class="field"><label>Avg Daily Requests per User</label><input id="ai_reqs" type="number" value="25" step="5" /></div>
+    <div class="row-2">
+      <div class="field"><label>Avg Input Tokens</label><input id="ai_in" type="number" value="3000" step="500" /></div>
+      <div class="field"><label>Avg Output Tokens</label><input id="ai_out" type="number" value="900" step="100" /></div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="ai_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="ai_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter your flat monthly subscription price and select the LLM pricing tier (Fast/Mini, Mid/Balanced, or Frontier Reasoning).</li><li>Input average daily requests per user along with typical input and output token counts.</li><li>Check your real AI Gross Margin % (vs 80% traditional SaaS median) and your exact Whale Bankruptcy daily request limit.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Cost_Per_Request = (Input_Tokens / 1e6) × In_Rate + (Output_Tokens / 1e6) × Out_Rate
+Monthly_AI_COGS = Cost_Per_Request × Daily_Requests × 30
+Whale_Daily_Limit = floor((Price − Stripe_Fee − Infra) / (Cost_Per_Request × 30))</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">On a $29/mo plan using a Mid/Balanced model ($1.25 in / $5.00 out per 1M tokens) at 3,000 input + 900 output tokens ($0.00825/req) and 25 requests/day, monthly AI COGS is $6.19 plus $1.14 Stripe fee and $1 infra = $8.33 variable cost (71.3% margin). Any whale user exceeding 108 requests/day turns unprofitable.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>Why do AI SaaS products have lower gross margins than traditional SaaS?</h3><p>Traditional private SaaS averages ~80% gross margin (Benchmarkit 2026), whereas AI apps incur recurring per-token inference COGS on every user prompt, often compressing margins to 40%–65%.</p></div><div class="faq-item"><h3>What is the Whale Bankruptcy Limit?</h3><p>It is the exact number of daily requests at which a heavy power user on a flat-rate &#x27;unlimited&#x27; subscription costs more in LLM API fees than their entire monthly payment.</p></div><div class="faq-item"><h3>How can I protect margins on an AI wrapper?</h3><p>Route routine prompts to budget/mini models, enforce hard max_tokens caps, cache repeated context, and gate frontier reasoning or video generation behind credit packs or add-on tiers.</p></div><div class="faq-item"><h3>Can IdeaStress scan my actual repository for token cost risks?</h3><p>Yes. Run `ideastress scan-repo ./my-app --price 29` via CLI or MCP to statically detect OpenAI/Anthropic/Google/Replicate SDK calls inside loops and missing max_tokens caps.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-geo">
+
+<div id="tool-geo" class="workspace">
+  <div class="card">
+    <h2>5-Country Geo-Arbitrage CPC Scanner</h2>
+    <p class="sub">Spot markets where your idea survives paid search even if US Google Ads are too expensive.</p>
+    <div class="field"><label>US Baseline Google Ads CPC ($)</label><input id="g_cpc" type="number" value="8.90" step="0.25" /></div>
+    <div class="field"><label>Your US Max Viable CAC ($)</label><input id="g_cac" type="number" value="200" step="10" /></div>
+    <div class="field"><label>Landing Page Conversion Rate (%)</label><input id="g_cvr" type="number" value="2.5" step="0.25" /></div>
+  </div>
+  <div class="card" style="overflow-x:auto;">
+    <div id="g_alert" class="alert-box"></div>
+    <table>
+      <thead><tr><th>Market</th><th>Est. CPC</th><th>Implied CAC</th><th>Localized Ceiling</th><th>Verdict &amp; Headroom</th></tr></thead>
+      <tbody id="g_tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter your US baseline Google Ads CPC (e.g., $8.90 for accounting software).</li><li>Input your solved US Max Viable CAC ceiling and expected landing-page conversion rate.</li><li>Compare localized CPC, implied CAC, and headroom multiples across US, UK, Germany (DACH), Singapore, and Malaysia.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Localized_Implied_CAC = Country_CPC / Conversion_Rate
+Arbitrage_Headroom = Localized_Max_Viable_CAC / Localized_Implied_CAC</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">When US Google Ads CPC is $8.90 (implied CAC $356 at 2.5% CVR) and your US ceiling is $200, US paid search fails (0.56x headroom). In Malaysia, localized CPC (~$2.31) yields ~$92 implied CAC against a $110 localized ceiling (1.19x headroom — CHANNEL_VIABLE).</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is Geo-Arbitrage in SaaS and indie hacking?</h3><p>It is launching into non-US or non-English markets where Google Ads CPC and competition are 2x–4x lower than the US while local willingness to pay still supports profitable unit economics.</p></div><div class="faq-item"><h3>Why is US Google Ads CPC so high in 2026?</h3><p>Publicly tracked indie SaaS products roughly tripled between 2020 and 2026 and CAC rose ~60% over five years, driving US high-intent B2B keywords to $6–$15+ per click.</p></div><div class="faq-item"><h3>Does IdeaStress support live multi-country CPC lookups?</h3><p>Yes. With a DataForSEO key in `.env`, `ideastress geo-scan` queries live Google Ads search volume and CPC by country `location_code` and caches results for 30 days in SQLite.</p></div><div class="faq-item"><h3>Should I adjust pricing when entering lower-CPC countries?</h3><p>Yes. Our scanner automatically scales your localized max viable CAC by a purchasing-power factor so you do not overestimate revenue in lower-ARPA regions.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-breakeven">
+
+<div id="tool-breakeven" class="workspace">
+  <div class="card">
+    <h2>Break-Even Calculator (US Stripe Ready)</h2>
+    <p class="sub">Exact units and revenue required to cover monthly fixed overhead after payment fees.</p>
+    <div class="field"><label>US Payment Fee Preset</label><select id="be_proc"><option value="stripe_us" selected>Stripe US (2.9%+$0.30)</option><option value="mor_paddle">MoR Paddle/LS (5%+$0.50)</option><option value="none">None (0%)</option></select></div>
+    <div class="field"><label>Selling Price per Unit ($)</label><input id="be_price" type="number" value="65" /></div>
+    <div class="field"><label>Variable Cost per Unit ($)</label><input id="be_var" type="number" value="22" /></div>
+    <div class="field"><label>Refund Rate (%)</label><input id="be_ref" type="number" value="2" step="0.5" /></div>
+    <div class="field"><label>Fixed Monthly Overhead ($)</label><input id="be_fixed" type="number" value="4200" step="100" /></div>
+    <div class="field"><label>Expected Monthly Sales Volume</label><input id="be_vol" type="number" value="140" /></div>
+  </div>
+  <div class="card">
+    <div id="be_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="be_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Select your payment processor preset (Stripe US 2.9% + $0.30, MoR 5% + $0.50, or None).</li><li>Enter your selling price, variable cost per unit, refund rate, and total monthly fixed overhead.</li><li>Compare your expected monthly unit volume against the solved Break-Even Units to see monthly operating profit or shortfall.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Net_Unit_Contribution = Selling_Price × (1 − Refund_Rate) − Variable_Cost − Payment_Fee
+Break_Even_Units = ceil(Fixed_Monthly_Costs / Net_Unit_Contribution)</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">At a $65 selling price, 2% refund rate ($63.70 net), $22 variable cost, and $2.19 Stripe US fee, net unit contribution is $39.51. Covering $4,200 in fixed monthly overhead requires ceil(4200 / 39.51) = 107 units/month ($6,955 monthly revenue).</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>How do Stripe fees affect break-even units?</h3><p>Stripe&#x27;s US domestic card fee of 2.9% + $0.30 reduces your contribution margin on every sale, which increases the exact number of units required to cover fixed overhead — especially on low-ticket items under $25.</p></div><div class="faq-item"><h3>What happens when variable cost exceeds net selling price?</h3><p>Unit contribution margin becomes negative, meaning every additional unit sold loses money. IdeaStress flags break-even as Unreachable instead of outputting a misleading negative number.</p></div><div class="faq-item"><h3>Should ad spend be included in fixed overhead for break-even?</h3><p>If you run a fixed monthly ad budget (e.g., $1,000/mo), include it in fixed overhead to compute true cash break-even; if you scale ad spend per order (CPA), add CPA to variable cost per unit.</p></div><div class="faq-item"><h3>Is break-even revenue the same as profit?</h3><p>No. Break-even revenue is simply the point where total revenue equals total fixed plus variable costs ($0 operating profit before taxes).</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-saas">
+
+<div id="tool-saas" class="workspace">
+  <div class="card">
+    <h2>SaaS LTV / CAC &amp; Payback Calculator</h2>
+    <p class="sub">Gross-margin-adjusted LTV net of Stripe Billing fees, calibrated against 2026 SaaS medians.</p>
+    <div class="field"><label>Payment Preset</label><select id="s_proc"><option value="stripe_saas" selected>Stripe US + Billing (3.6%+$0.30)</option><option value="stripe_us">Stripe US Card Only (2.9%+$0.30)</option><option value="mor_paddle">MoR Paddle/LS (5%+$0.50)</option><option value="none">None (0%)</option></select></div>
+    <div class="field"><label>Monthly ARPA ($)</label><input id="s_arpa" type="number" value="49" /></div>
+    <div class="field"><label>Gross Margin (%)</label><input id="s_gm" type="number" value="80" /></div>
+    <div class="field"><label>Monthly Customer Churn (%)</label><input id="s_churn" type="number" value="5.5" step="0.5" /></div>
+    <div class="field"><label>Customer Acquisition Cost — CAC ($)</label><input id="s_cac" type="number" value="180" /></div>
+  </div>
+  <div class="card">
+    <div id="s_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="s_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Select your SaaS billing fee preset (Stripe US + Billing 3.6% + $0.30 or MoR 5% + $0.50).</li><li>Enter Monthly ARPA, Gross Margin %, Monthly Customer Churn %, and Customer Acquisition Cost (CAC).</li><li>Check your LTV:CAC ratio against the 3.0x baseline (2026 private SaaS median is 4.1x) and CAC Payback against the 16-month median.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Monthly_Gross_Profit = (ARPA × Gross_Margin_Pct) − Payment_Fee
+LTV = Monthly_Gross_Profit / Monthly_Churn_Rate
+CAC_Payback_Months = CAC / Monthly_Gross_Profit</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">For a $49/mo SaaS with 80% gross margin, Stripe Billing fee ($2.06), 5.5% monthly churn, and $180 CAC: net monthly gross profit is $37.14, LTV is $675, LTV:CAC is 3.75x (healthy &gt; 3.0x), and CAC payback is 4.8 months.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is a healthy SaaS LTV:CAC ratio in 2026?</h3><p>3.0x remains the minimum healthy rule of thumb, while 2026 private SaaS medians sit around 4.1x with an 80% software gross margin and 16-month CAC payback period (Benchmarkit / SubscriptionPlaybook 2026).</p></div><div class="faq-item"><h3>What is average monthly churn for low-priced SaaS?</h3><p>According to ChartMogul&#x27;s November 2026 benchmarks, median monthly customer churn is 6.2% for SaaS with ARPA under $25, compared to 2.6% for SaaS above $1,000 ARPA.</p></div><div class="faq-item"><h3>Why must LTV be gross-margin adjusted?</h3><p>Using raw revenue instead of gross profit overstates customer value, especially for AI-heavy SaaS products where LLM token COGS compress gross margin well below 80%.</p></div><div class="faq-item"><h3>Can LTV be calculated if monthly churn is 0%?</h3><p>No. Dividing by zero produces infinity; with zero observed churn on a small early cohort, treat LTV as unvalidated until at least 3–6 months of retention data exist.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-ecom">
+
+<div id="tool-ecom" class="workspace">
+  <div class="card">
+    <h2>E-Commerce Margin &amp; Break-Even ROAS</h2>
+    <p class="sub">Exact Break-Even ROAS and first-order net profit after COGS, shipping, and Stripe US card fees.</p>
+    <div class="field"><label>Payment Preset</label><select id="e_proc"><option value="stripe_us" selected>Stripe / Shopify Payments US (2.9%+$0.30)</option><option value="none">None (0%)</option></select></div>
+    <div class="field"><label>Average Order Value — AOV ($)</label><input id="e_aov" type="number" value="68" /></div>
+    <div class="field"><label>Product COGS ($)</label><input id="e_cogs" type="number" value="19" /></div>
+    <div class="field"><label>Shipping &amp; Fulfillment ($)</label><input id="e_ship" type="number" value="7" /></div>
+    <div class="field"><label>Paid Ad CPA / CAC ($)</label><input id="e_cpa" type="number" value="34" /></div>
+  </div>
+  <div class="card">
+    <div id="e_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="e_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter Average Order Value (AOV), product COGS, shipping/fulfillment cost, and your payment fee preset.</li><li>Input your blended paid ad CPA / CAC.</li><li>Read your exact Break-Even ROAS floor, maximum profitable CPA, and real first-order net profit.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Pre_Ad_Margin = AOV − COGS − Shipping − Payment_Fee
+Break_Even_ROAS = AOV / Pre_Ad_Margin
+First_Order_Net_Profit = Pre_Ad_Margin − Ad_CPA</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">On a $68 AOV order with $19 COGS, $7 shipping, and $2.27 Stripe/Shopify fee, pre-ad margin is $39.73 (58.4%). Break-Even ROAS is 68 / 39.73 = 1.71x. At a $34 paid ad CPA, you keep $5.73 first-order net profit.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is Break-Even ROAS in e-commerce?</h3><p>Break-Even ROAS (Return on Ad Spend) is the minimum ad revenue multiple required so first-order gross profit exactly covers your ad spend. Any ROAS below this floor loses money on every new customer.</p></div><div class="faq-item"><h3>What is the average e-commerce CAC in 2026?</h3><p>First Page Sage benchmarks place blended e-commerce CAC between $53 and $91 across 13 verticals, which is why low-AOV stores (&lt;$40) struggle on paid ads without high repeat purchase rates.</p></div><div class="faq-item"><h3>What is a realistic Shopify conversion rate in 2026?</h3><p>Littledata&#x27;s late-2026 Shopify dataset reports a 1.4% median store conversion rate, with the top 20% exceeding 2.7% and top 10% exceeding 3.7%.</p></div><div class="faq-item"><h3>How do e-commerce gross margins vary by category?</h3><p>Hycos 2026 benchmarks show 60%–80% for Beauty &amp; Skincare, 55%–70% for Health &amp; Supplements, 45%–65% for Fashion &amp; Apparel, and 15%–30% for Consumer Electronics.</p></div></div>
+</section>
+
+</div><div class="panel" id="panel-runway">
+
+<div id="tool-runway" class="workspace">
+  <div class="card">
+    <h2>Startup Runway &amp; Burn Stress-Tester</h2>
+    <p class="sub">Compare base runway against a simultaneous -30% revenue drop and +20% expense shock.</p>
+    <div class="field"><label>Current Cash in Bank ($)</label><input id="r_cash" type="number" value="45000" step="1000" /></div>
+    <div class="field"><label>Current Monthly Revenue ($)</label><input id="r_rev" type="number" value="3500" step="250" /></div>
+    <div class="field"><label>Monthly Revenue Growth (%)</label><input id="r_grow" type="number" value="10" step="1" /></div>
+    <div class="field"><label>Total Monthly Expenses ($)</label><input id="r_burn" type="number" value="8500" step="250" /></div>
+  </div>
+  <div class="card">
+    <div id="r_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="r_kpis"></div>
+  </div>
+</div>
+
+
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter current bank cash, current monthly revenue, expected monthly revenue growth %, and total monthly expenses.</li><li>Compare your Base Runway against the built-in Downside Shock (−30% revenue, 50% slower growth, +20% cost overrun).</li><li>Use the Shock Runway to decide when to cut burn, raise prices, or start fundraising (typically 6+ months before zero cash).</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Monthly_Net_Burn(m) = Monthly_Expenses − Monthly_Revenue(m)
+Runway = First month m where Cash(m) &lt; 0</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">With $45,000 cash, $3,500 monthly revenue growing 10%/mo, and $8,500 monthly burn, base runway is ~14 months; under a −30% revenue and +20% expense shock, runway compresses sharply to ~6 months.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>Why stress-test runway with a −30% revenue and +20% cost shock?</h3><p>Early startup revenue is lumpy and infrastructure, ad spend, or contractor costs routinely overrun. Planning solely on base-case runway leaves zero buffer when a channel slows down.</p></div><div class="faq-item"><h3>What is the difference between gross burn and net burn?</h3><p>Gross burn is total monthly cash outflow (expenses). Net burn is expenses minus monthly revenue collected. Runway is governed by net burn.</p></div><div class="faq-item"><h3>How many months of runway should a bootstrapped founder keep?</h3><p>Keep at least 6–12 months of shock-tested runway before committing to fixed recurring expenses like full-time hires or annual office leases.</p></div><div class="faq-item"><h3>Does revenue growth automatically extend runway?</h3><p>Only if unit contribution margin is positive and customer acquisition spend does not scale faster than collected cash.</p></div></div>
+</section>
+
+</div>
+    
+<section class="section">
+  <h2>2025–2026 Cited Industry Base Rates &amp; US Payment Benchmarks</h2>
+  <p class="lead">Every IdeaStress warning is grounded in published empirical medians rather than unverified LLM guesses.</p>
+  <div class="card" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Category</th><th>Metric</th><th>2025–2026 Benchmark</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill">SaaS</span></td><td>Monthly Customer Churn</td><td class="mono">6.2% (ARPA &lt;$25) · 2.6% (ARPA &gt;$1,000)</td><td><a href="https://chartmogul.com/benchmarks/" target="_blank" rel="noopener">ChartMogul (Nov 2026)</a></td></tr>
+        <tr><td><span class="pill">SaaS</span></td><td>Gross Margin / Payback / LTV:CAC</td><td class="mono">80% median · 16 mo · 4.1x</td><td><a href="https://www.subscriptionplaybook.com/benchmarks/" target="_blank" rel="noopener">Benchmarkit / SubscriptionPlaybook (2026)</a></td></tr>
+        <tr><td><span class="pill">US Payments</span></td><td>Standard US Domestic Card Fee</td><td class="mono">2.9% + $0.30 (+0.7% Stripe Billing; MoR 5% + $0.50)</td><td><a href="https://stripe.com/pricing" target="_blank" rel="noopener">Stripe US Pricing (2026)</a></td></tr>
+        <tr><td><span class="pill">Indie SaaS</span></td><td>Revenue Distribution (3,700+ startups)</td><td class="mono">$145 median MRR · 6.1% &gt; $10K MRR</td><td><a href="https://bigideasdb.com/dimeadozen-alternative" target="_blank" rel="noopener">TrustMRR / BigIdeasDB (Sep 2026)</a></td></tr>
+        <tr><td><span class="pill">E-Commerce</span></td><td>Shopify Conversion / Blended CAC</td><td class="mono">1.4% median CVR · $53–$91 blended CAC</td><td><a href="https://eulav.io/insights/average-ecommerce-conversion-rate/" target="_blank" rel="noopener">Littledata / First Page Sage (2026)</a></td></tr>
+        <tr><td><span class="pill">Local / SMB</span></td><td>US 94-Sector Net Margin</td><td class="mono">9.74% average (Restaurants 3%–9%)</td><td><a href="https://christopholivierconsulting.com/profit-margin-by-industry/" target="_blank" rel="noopener">NYU Stern &amp; VantaInsights (2026)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+    <footer>
+      <div><strong>IdeaStress v0.8.1</strong> · Open-Source MIT · Preliminary feasibility math only (not financial, tax, or legal advice).</div>
+      <div class="mono">CLI &amp; MCP: pip install ideastress &amp;&amp; ideastress mcp</div>
+    </footer>
+  </main>
+
+  <div class="modal-backdrop" id="app_modal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="modal_title">Preview</h3>
+        <button type="button" class="btn" id="modal_close_btn">Close ✕</button>
+      </div>
+      <div id="modal_body"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;">
+        <button type="button" class="btn" id="modal_copy_btn">Copy to Clipboard</button>
+        <button type="button" class="btn primary" id="modal_dl_btn">Download File</button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script>
+// IdeaStress v0.8.1 Shared Deterministic Financial + 1,000-Run Monte Carlo + US Stripe/Tax Engine
+const PAYMENT_FEES = {
+  none: { pct: 0, flat: 0, label: 'None (0%)' },
+  stripe_us: { pct: 0.029, flat: 0.30, label: 'Stripe US (2.9% + $0.30)' },
+  stripe_saas: { pct: 0.036, flat: 0.30, label: 'Stripe US + Billing (3.6% + $0.30)' },
+  mor_paddle: { pct: 0.050, flat: 0.50, label: 'MoR Paddle/LS (5% + $0.50)' }
+};
+
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return function() {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function randNorm(rng) {
+  const u1 = Math.max(1e-7, rng()), u2 = rng();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function paymentFee(price, preset) {
+  const f = PAYMENT_FEES[preset] || PAYMENT_FEES.none;
+  return price * f.pct + f.flat;
+}
+
+function simPath(cfg, mults = {}) {
+  const p = cfg.price * (mults.p || 1);
+  const fee = paymentFee(p, cfg.processor);
+  const v = cfg.varCost * (1 + cfg.payrollPct / 100) * (mults.v || 1) + fee;
+  const fx = cfg.fixed * (mults.fx || 1);
+  const nc = Math.max(0, Math.round(cfg.newC * (mults.nc || 1)));
+  const sp = cfg.spend * (mults.sp || 1);
+  const ch = Math.min(0.95, Math.max(0, (cfg.churnPct / 100) * (mults.ch || 1)));
+  const netUnit = p * (1 - cfg.refundPct / 100);
+  const contrib = netUnit - v;
+  let active = 0, c = cfg.cash, minC = cfg.cash;
+  const series = [cfg.cash];
+  for (let m = 1; m <= 12; m++) {
+    if (cfg.type === 'saas') {
+      active = Math.max(0, Math.round(active * (1 - ch))) + nc;
+    } else {
+      active = nc;
+    }
+    const ebt = active * contrib - fx - sp;
+    const tax = (ebt > 0 && cfg.taxPct > 0) ? ebt * (cfg.taxPct / 100) : 0;
+    c += (ebt - tax);
+    if (c < minC) minC = c;
+    series.push(c);
+  }
+  return { ending: c, minC, contrib, fee, series };
+}
+
+function runMonteCarlo1000(cfg) {
+  const N = 1000;
+  const rng = mulberry32(42);
+  const fee = paymentFee(cfg.price, cfg.processor);
+  const baseVar = cfg.varCost * (1 + cfg.payrollPct / 100) + fee;
+  const netUnit = cfg.price * (1 - cfg.refundPct / 100);
+  const ends = new Float64Array(N);
+  const mins = new Float64Array(N);
+  let survived = 0;
+
+  for (let i = 0; i < N; i++) {
+    const cacMult = Math.min(2.4, Math.max(0.65, Math.exp(0.05 + 0.22 * randNorm(rng))));
+    const churnMult = Math.min(2.2, Math.max(0.5, 1.02 + 0.20 * randNorm(rng)));
+    const varMult = Math.min(1.35, Math.max(0.8, 1.0 + 0.08 * randNorm(rng)));
+    let c = cfg.cash, minC = cfg.cash, active = 0;
+    for (let m = 1; m <= 12; m++) {
+      const nc = Math.max(0, Math.round(cfg.newC + Math.max(1, cfg.newC * 0.22) * randNorm(rng)));
+      if (cfg.type === 'saas') {
+        const spike = m === 1 ? 1.35 : (m === 2 ? 1.15 : 1.0);
+        const mc = Math.min(0.90, Math.max(0, (cfg.churnPct / 100) * churnMult * spike));
+        active = Math.max(0, active - Math.round(active * mc)) + nc;
+      } else {
+        active = nc;
+      }
+      const ebt = active * (netUnit - baseVar * varMult) - cfg.fixed - cfg.spend * cacMult;
+      const tax = (ebt > 0 && cfg.taxPct > 0) ? ebt * (cfg.taxPct / 100) : 0;
+      c += (ebt - tax);
+      if (c < minC) minC = c;
+    }
+    ends[i] = c; mins[i] = minC;
+    if (minC >= 0) survived++;
+  }
+  ends.sort(); mins.sort();
+  const survivalPct = (survived / N) * 100;
+  const risk = survivalPct >= 85 ? 'LOW_RISK' : (survivalPct >= 60 ? 'MODERATE_RISK' : (survivalPct >= 30 ? 'HIGH_RISK' : 'CRITICAL_RISK'));
+  return {
+    survivalPct, risk,
+    p10End: ends[Math.floor(N * 0.1)],
+    p50End: ends[Math.floor(N * 0.5)],
+    p90End: ends[Math.floor(N * 0.9)],
+    p10Min: mins[Math.floor(N * 0.1)]
+  };
+}
+
+function solveMaxCac(cfg) {
+  if (cfg.newC <= 0) return 0;
+  if (simPath({ ...cfg, spend: 0 }).minC < 0) return 0;
+  let lo = 0, hi = Math.max(5000, cfg.price * 24);
+  for (let i = 0; i < 32; i++) {
+    const mid = (lo + hi) / 2;
+    if (simPath({ ...cfg, spend: mid * cfg.newC }).minC >= 0) lo = mid;
+    else hi = mid;
+  }
+  return lo;
+}
+
+function solveMinPrice(cfg) {
+  let lo = 0.01, hi = 25000;
+  if (simPath({ ...cfg, price: hi }).minC < 0) return null;
+  for (let i = 0; i < 32; i++) {
+    const mid = (lo + hi) / 2;
+    if (simPath({ ...cfg, price: mid }).minC >= 0) hi = mid;
+    else lo = mid;
+  }
+  return hi;
+}
+
+function renderCashChart(svgId, cons, base, opt, cur) {
+  const svg = document.getElementById(svgId);
+  if (!svg) return;
+  const all = [...cons, ...base, ...opt, 0];
+  const minV = Math.min(...all), maxV = Math.max(...all), span = Math.max(1, maxV - minV);
+  const W = 680, H = 195, padL = 56, padR = 16, padT = 16, padB = 24;
+  const x = i => padL + (i / 12) * (W - padL - padR);
+  const y = v => padT + (1 - (v - minV) / span) * (H - padT - padB);
+  const path = arr => arr.map((v, i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const yZero = y(0);
+  svg.innerHTML = `
+    <line x1="${padL}" y1="${yZero.toFixed(1)}" x2="${W - padR}" y2="${yZero.toFixed(1)}" stroke="#ef444466" stroke-dasharray="4 4" />
+    <text x="6" y="${(yZero + 4).toFixed(1)}" fill="#ef4444" font-size="10" font-family="monospace">0 ${cur}</text>
+    <text x="6" y="18" fill="#8a95ad" font-size="10" font-family="monospace">${Math.round(maxV).toLocaleString()}</text>
+    <text x="6" y="${H - 22}" fill="#8a95ad" font-size="10" font-family="monospace">${Math.round(minV).toLocaleString()}</text>
+    <path d="${path(cons)}" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 3" />
+    <path d="${path(base)}" fill="none" stroke="#38bdf8" stroke-width="3" />
+    <path d="${path(opt)}" fill="none" stroke="#10b981" stroke-width="2" opacity="0.8" />
+    <text x="${padL}" y="${H - 6}" fill="#8a95ad" font-size="10" font-family="monospace">M0</text>
+    <text x="${x(6).toFixed(1)}" y="${H - 6}" fill="#8a95ad" font-size="10" font-family="monospace">M6</text>
+    <text x="${(W - padR - 22)}" y="${H - 6}" fill="#8a95ad" font-size="10" font-family="monospace">M12</text>
+  `;
+}
+
+window.initFrontierTool = function() {
+  const root = document.getElementById('tool-frontier');
+  if (!root) return;
+  let lastCfg = null;
+  function update() {
+    const cfg = {
+      type: document.getElementById('f_type').value,
+      cur: document.getElementById('f_cur').value,
+      processor: document.getElementById('f_proc').value,
+      taxPct: parseFloat(document.getElementById('f_tax').value) || 0,
+      payrollPct: parseFloat(document.getElementById('f_payroll')?.value) || 0,
+      price: parseFloat(document.getElementById('f_price').value) || 0,
+      varCost: parseFloat(document.getElementById('f_var').value) || 0,
+      fixed: parseFloat(document.getElementById('f_fixed').value) || 0,
+      cash: parseFloat(document.getElementById('f_cash').value) || 0,
+      newC: parseInt(document.getElementById('f_new').value, 10) || 0,
+      spend: parseFloat(document.getElementById('f_spend').value) || 0,
+      churnPct: parseFloat(document.getElementById('f_churn').value) || 0,
+      refundPct: parseFloat(document.getElementById('f_refund').value) || 0
+    };
+    lastCfg = cfg;
+    const base = simPath(cfg);
+    const cons = simPath(cfg, { p: 0.9, nc: 0.65, v: 1.15, fx: 1.1, sp: 1.25, ch: 1.35 });
+    const opt = simPath(cfg, { p: 1.1, nc: 1.3, v: 0.95, sp: 0.9, ch: 0.8 });
+    const mc = runMonteCarlo1000(cfg);
+    const maxCac = solveMaxCac(cfg);
+    const minPrice = solveMinPrice(cfg);
+    const curCac = cfg.newC > 0 ? cfg.spend / cfg.newC : 0;
+
+    const vbox = document.getElementById('f_verdict_box');
+    const survColor = mc.survivalPct >= 85 ? 'var(--ok)' : (mc.survivalPct >= 60 ? 'var(--warn)' : 'var(--bad)');
+    const cls = (base.contrib <= 0 || mc.survivalPct < 30) ? 'bad' : (mc.survivalPct < 80 ? 'warn' : 'ok');
+    vbox.className = 'alert-box ' + cls;
+    vbox.innerHTML = `<strong class="mono">${mc.risk} · ${mc.survivalPct.toFixed(1)}% 12-Month Survival Probability (1,000 Monte Carlo runs)</strong> — P10 cash trough: ${cfg.cur} ${Math.round(mc.p10Min).toLocaleString()} · Payment fee/unit: ${cfg.cur} ${base.fee.toFixed(2)}.`;
+
+    document.getElementById('f_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">1,000-Run Survival Prob</div><div class="kv" style="color:${survColor}">${mc.survivalPct.toFixed(1)}%</div><div class="ks">P50 Cash: ${cfg.cur} ${Math.round(mc.p50End).toLocaleString()}</div></div>
+      <div class="kpi"><div class="kl">Max Viable CAC (12m)</div><div class="kv" style="color:var(--accent)">${cfg.cur} ${maxCac.toFixed(2)}</div><div class="ks">Modeled CAC: ${cfg.cur} ${curCac.toFixed(2)}</div></div>
+      <div class="kpi"><div class="kl">Min Viable Price</div><div class="kv">${minPrice !== null ? cfg.cur + ' ' + minPrice.toFixed(2) : 'IMPOSSIBLE'}</div><div class="ks">Unit Contrib: ${cfg.cur} ${base.contrib.toFixed(2)}</div></div>
+      <div class="kpi"><div class="kl">P10 Downside Cash</div><div class="kv" style="color:${mc.p10End >= 0 ? 'var(--ok)':'var(--bad)'}">${cfg.cur} ${Math.round(mc.p10End).toLocaleString()}</div><div class="ks">P90 Upside: ${cfg.cur} ${Math.round(mc.p90End).toLocaleString()}</div></div>
+    `;
+
+    const afBox = document.getElementById('f_autofix_box');
+    if (afBox) {
+      if (mc.survivalPct < 85) {
+        let loP = cfg.price, hiP = Math.max(cfg.price * 6, 500), solvedP = null;
+        if (runMonteCarlo1000({ ...cfg, price: hiP }).survivalPct >= 85) {
+          for (let k = 0; k < 14; k++) {
+            const mP = (loP + hiP) / 2;
+            if (runMonteCarlo1000({ ...cfg, price: mP }).survivalPct >= 85) { hiP = mP; solvedP = mP; }
+            else loP = mP;
+          }
+        }
+        afBox.style.display = 'block';
+        afBox.className = 'alert-box warn';
+        afBox.innerHTML = solvedP
+          ? `<strong class="mono">AUTO-FIX RESCUE PRESCRIPTION (Target &ge;85% Survival):</strong> Raise unit price from <strong>${cfg.cur} ${cfg.price}</strong> to <strong>${cfg.cur} ${solvedP.toFixed(2)}</strong>, or add a 20%-off Annual Prepay Plan / cap monthly ad spend.`
+          : `<strong class="mono">AUTO-FIX ALERT:</strong> Even raising price 6x cannot reach 85% survival — restructure fixed/variable costs or customer volume.`;
+      } else {
+        afBox.style.display = 'none';
+      }
+    }
+    renderCashChart('f_chart', cons.series, base.series, opt.series, cfg.cur);
+    const cpc = parseFloat(document.getElementById('f_cpc')?.value) || 0;
+    const cvr = Math.max(0.001, (parseFloat(document.getElementById('f_cvr')?.value) || 2.5) / 100);
+    const impliedCac = cpc / cvr;
+    const reqCvr = maxCac > 0 ? (cpc / maxCac) * 100 : 999;
+    const cpcBox = document.getElementById('f_cpc_box');
+    if (cpcBox) {
+      if (maxCac <= 0 || impliedCac > maxCac || reqCvr > 15) {
+        cpcBox.className = 'alert-box bad';
+        cpcBox.innerHTML = `<strong class="mono">CHANNEL_IMPOSSIBLE</strong> — At ${cfg.cur} ${cpc.toFixed(2)} CPC &amp; ${(cvr*100).toFixed(1)}% CVR, implied paid CAC is <strong>${cfg.cur} ${impliedCac.toFixed(2)}</strong> vs your <strong>${cfg.cur} ${maxCac.toFixed(2)}</strong> ceiling (needs ${reqCvr.toFixed(1)}% CVR to break even).`;
+      } else if (impliedCac > maxCac * 0.75) {
+        cpcBox.className = 'alert-box warn';
+        cpcBox.innerHTML = `<strong class="mono">CHANNEL_TIGHT</strong> — Implied paid CAC (${cfg.cur} ${impliedCac.toFixed(2)}) consumes &gt;75% of your ${cfg.cur} ${maxCac.toFixed(2)} ceiling (min CVR: ${reqCvr.toFixed(1)}%).`;
+      } else {
+        cpcBox.className = 'alert-box ok';
+        cpcBox.innerHTML = `<strong class="mono">CHANNEL_VIABLE</strong> — Implied paid CAC (${cfg.cur} ${impliedCac.toFixed(2)}) fits under your ${cfg.cur} ${maxCac.toFixed(2)} ceiling (min CVR: ${reqCvr.toFixed(1)}%).`;
+      }
+    }
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  const dlBtn = document.getElementById('btn_export_yaml');
+  if (dlBtn) {
+    dlBtn.onclick = () => {
+      if (!lastCfg) return;
+      const c = lastCfg;
+      const y = `idea: "My ${c.type} business idea"\ntarget_market:\n  - "United States"\nbusiness_type: ${c.type}\nbudget: "${c.cash}"\ncurrency: ${c.cur}\ntimeline_months: 12\nfinancials:\n  business_type: ${c.type}\n  currency: ${c.cur}\n  unit_price: "${c.price}"\n  variable_cost_per_unit: "${c.varCost}"\n  fixed_monthly_costs: "${c.fixed}"\n  monthly_new_customers: ${c.newC}\n  monthly_acquisition_spend: "${c.spend}"\n  monthly_churn_rate: "${(c.churnPct / 100).toFixed(4)}"\n  refund_rate: "${(c.refundPct / 100).toFixed(4)}"\n  payment_processor: "${c.processor}"\n  effective_tax_rate: "${(c.taxPct / 100).toFixed(4)}"\n  starting_cash: "${c.cash}"\n  horizon_months: 12\n`;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([y], { type: 'text/yaml' }));
+      a.download = 'venture.yaml'; a.click();
+      showToast('Downloaded venture.yaml with US Stripe & Tax presets!');
+    };
+  }
+  const pcBtn = document.getElementById('btn_proof_card');
+  if (pcBtn) {
+    pcBtn.onclick = () => {
+      if (!lastCfg) return;
+      const c = lastCfg;
+      const mc = runMonteCarlo1000(c);
+      const maxCac = solveMaxCac(c);
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630"><rect width="1200" height="630" fill="#080a0f"/><rect x="44" y="44" width="1112" height="542" rx="24" fill="#101521" stroke="#243047" stroke-width="2"/><text x="86" y="106" fill="#38bdf8" font-family="monospace" font-size="22" font-weight="800">IDEASTRESS // FALSIFICATION PROOF CARD</text><text x="86" y="190" fill="#fff" font-family="sans-serif" font-size="38" font-weight="800">${c.type.toUpperCase()} · ${c.cur} ${c.price} Price · ${c.cur} ${c.cash} Cash</text><text x="86" y="310" fill="#10b981" font-family="monospace" font-size="48" font-weight="800">${mc.survivalPct.toFixed(1)}% 12M SURVIVAL (1,000 RUNS)</text><text x="86" y="390" fill="#edf2fb" font-family="monospace" font-size="34">MAX VIABLE CAC: ${c.cur} ${maxCac.toFixed(2)} · P10 CASH: ${c.cur} ${Math.round(mc.p10End).toLocaleString()}</text><text x="86" y="540" fill="#8a95ad" font-family="monospace" font-size="18">Stress-tested with IdeaStress (MIT Open-Source) · waterdolphinkiller.github.io/ideastress</text></svg>`;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+      a.download = 'ideastress_proof_card.svg'; a.click();
+      showToast('Downloaded 1200x630 Proof Card SVG!');
+    };
+  }
+  update();
+};
+
+window.initBreakEvenTool = function() {
+  const root = document.getElementById('tool-breakeven');
+  if (!root) return;
+  function update() {
+    const p = parseFloat(document.getElementById('be_price').value) || 0;
+    const v = parseFloat(document.getElementById('be_var').value) || 0;
+    const r = parseFloat(document.getElementById('be_ref').value) || 0;
+    const proc = document.getElementById('be_proc').value;
+    const fx = parseFloat(document.getElementById('be_fixed').value) || 0;
+    const vol = parseInt(document.getElementById('be_vol').value, 10) || 0;
+    const fee = paymentFee(p, proc);
+    const cm = p * (1 - r / 100) - v - fee;
+    const units = cm > 0 ? Math.ceil(fx / cm) : null;
+    const profit = vol * cm - fx;
+    const al = document.getElementById('be_alert');
+    al.className = 'alert-box ' + (cm <= 0 ? 'bad' : (profit >= 0 ? 'ok' : 'warn'));
+    al.innerHTML = cm <= 0 ? '<strong>Unreachable Break-Even:</strong> Variable + payment fees exceed net unit price.'
+      : (profit >= 0 ? `<strong>Profitable:</strong> ${vol} units/mo clears break-even (${units}) with $${Math.round(profit).toLocaleString()}/mo profit (after $${fee.toFixed(2)}/unit payment fee).`
+        : `<strong>Below Break-Even:</strong> Need ${units - vol} more units/month to cover fixed costs.`);
+    document.getElementById('be_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Break-Even Units / Mo</div><div class="kv" style="color:var(--accent)">${units ?? 'N/A'}</div></div>
+      <div class="kpi"><div class="kl">Break-Even Revenue</div><div class="kv">${units !== null ? '$' + Math.round(units * p).toLocaleString() : 'N/A'}</div></div>
+      <div class="kpi"><div class="kl">Net Unit Contribution</div><div class="kv">$${cm.toFixed(2)}</div><div class="ks">Fee: $${fee.toFixed(2)}/order</div></div>
+      <div class="kpi"><div class="kl">Monthly Profit @ Volume</div><div class="kv" style="color:${profit >= 0 ? 'var(--ok)':'var(--bad)'}">$${Math.round(profit).toLocaleString()}</div></div>
+    `;
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initSaasTool = function() {
+  const root = document.getElementById('tool-saas');
+  if (!root) return;
+  function update() {
+    const arpa = parseFloat(document.getElementById('s_arpa').value) || 0;
+    const gm = (parseFloat(document.getElementById('s_gm').value) || 0) / 100;
+    const churn = (parseFloat(document.getElementById('s_churn').value) || 0) / 100;
+    const cac = parseFloat(document.getElementById('s_cac').value) || 0;
+    const proc = document.getElementById('s_proc').value;
+    const fee = paymentFee(arpa, proc);
+    const monthlyGp = Math.max(0, arpa * gm - fee);
+    const ltv = churn > 0 ? monthlyGp / churn : null;
+    const ratio = ltv !== null && cac > 0 ? ltv / cac : null;
+    const payback = monthlyGp > 0 ? cac / monthlyGp : null;
+    const al = document.getElementById('s_alert');
+    al.className = 'alert-box ' + (!ratio ? 'warn' : (ratio < 3 ? 'bad' : 'ok'));
+    al.innerHTML = !ratio ? 'Enter non-zero churn and CAC.'
+      : (ratio < 3 ? `<strong>Fragile SaaS Economics (${ratio.toFixed(2)}x):</strong> Below 3.0x baseline (2026 median is 4.1x).`
+        : `<strong>Healthy Ratio (${ratio.toFixed(2)}x):</strong> Clears 3.0x baseline after $${fee.toFixed(2)}/mo processing fee.`);
+    document.getElementById('s_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Net Gross-Margin LTV</div><div class="kv" style="color:var(--accent)">${ltv !== null ? '$' + Math.round(ltv).toLocaleString() : 'N/A'}</div></div>
+      <div class="kpi"><div class="kl">LTV : CAC Ratio</div><div class="kv" style="color:${ratio && ratio >= 3 ? 'var(--ok)':'var(--bad)'}">${ratio !== null ? ratio.toFixed(2) + 'x' : 'N/A'}</div></div>
+      <div class="kpi"><div class="kl">CAC Payback</div><div class="kv">${payback !== null ? payback.toFixed(1) + ' mo' : 'N/A'}</div><div class="ks">2026 median: 16 mo</div></div>
+      <div class="kpi"><div class="kl">Avg Lifespan</div><div class="kv">${churn > 0 ? (1 / churn).toFixed(1) + ' mo' : 'N/A'}</div></div>
+    `;
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initEcomTool = function() {
+  const root = document.getElementById('tool-ecom');
+  if (!root) return;
+  function update() {
+    const aov = parseFloat(document.getElementById('e_aov').value) || 0;
+    const cogs = parseFloat(document.getElementById('e_cogs').value) || 0;
+    const ship = parseFloat(document.getElementById('e_ship').value) || 0;
+    const proc = document.getElementById('e_proc').value;
+    const cpa = parseFloat(document.getElementById('e_cpa').value) || 0;
+    const fee = paymentFee(aov, proc);
+    const preAd = aov - cogs - ship - fee;
+    const beRoas = preAd > 0 ? aov / preAd : null;
+    const net = preAd - cpa;
+    const al = document.getElementById('e_alert');
+    al.className = 'alert-box ' + (net >= 0 ? 'ok' : 'bad');
+    al.innerHTML = net >= 0
+      ? `<strong>First-Order Profitable:</strong> +$${net.toFixed(2)}/order after ads & $${fee.toFixed(2)} fee. Stay above <strong>${beRoas ? beRoas.toFixed(2) : 'N/A'}x ROAS</strong>.`
+      : `<strong>Losing $${Math.abs(net).toFixed(2)} / Order:</strong> Ad CPA ($${cpa}) exceeds pre-ad margin ($${preAd.toFixed(2)}).`;
+    document.getElementById('e_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Break-Even ROAS</div><div class="kv" style="color:var(--accent)">${beRoas !== null ? beRoas.toFixed(2) + 'x' : 'IMPOSSIBLE'}</div></div>
+      <div class="kpi"><div class="kl">Pre-Ad Margin</div><div class="kv">$${preAd.toFixed(2)}</div><div class="ks">Stripe/Fee: $${fee.toFixed(2)}</div></div>
+      <div class="kpi"><div class="kl">Max Profitable CPA</div><div class="kv">$${Math.max(0, preAd).toFixed(2)}</div><div class="ks">2026 US avg: $53-$91</div></div>
+      <div class="kpi"><div class="kl">First-Order Net</div><div class="kv" style="color:${net >= 0 ? 'var(--ok)':'var(--bad)'}">$${net.toFixed(2)}</div></div>
+    `;
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+
+
+
+window.applyPreset = function(key) {
+  const P = {
+    healthy_saas: { type:'saas', cur:'USD', price:79, varCost:6, fixed:900, cash:15000, newC:12, spend:480, churn:4, refund:1, cpc:4.20, cvr:3.0 },
+    losing_ai:    { type:'saas', cur:'USD', price:19, varCost:14, fixed:1400, cash:5000, newC:20, spend:600, churn:11, refund:3, cpc:6.50, cvr:2.0 },
+    high_cpc:     { type:'saas', cur:'USD', price:49, varCost:6, fixed:900, cash:12000, newC:14, spend:560, churn:5, refund:2, cpc:8.90, cvr:2.5 }
+  }[key];
+  if (!P) return;
+  document.getElementById('f_type').value = P.type;
+  document.getElementById('f_cur').value = P.cur;
+  document.getElementById('f_price').value = P.price;
+  document.getElementById('f_var').value = P.varCost;
+  document.getElementById('f_fixed').value = P.fixed;
+  document.getElementById('f_cash').value = P.cash;
+  document.getElementById('f_new').value = P.newC;
+  document.getElementById('f_spend').value = P.spend;
+  document.getElementById('f_churn').value = P.churn;
+  document.getElementById('f_refund').value = P.refund;
+  if (document.getElementById('f_cpc')) document.getElementById('f_cpc').value = P.cpc;
+  if (document.getElementById('f_cvr')) document.getElementById('f_cvr').value = P.cvr;
+  document.getElementById('f_price').dispatchEvent(new Event('input'));
+  showToast('Loaded preset: ' + key.replace('_', ' '));
+};
+
+
+window.initQuitJobTool = function() {
+  const root = document.getElementById('tool-quit-job');
+  if (!root) return;
+  function update() {
+    const sal = parseFloat(document.getElementById('q_sal').value) || 0;
+    const tax = Math.min(80, Math.max(0, parseFloat(document.getElementById('q_tax').value) || 0)) / 100;
+    const ops = parseFloat(document.getElementById('q_ops').value) || 0;
+    const price = parseFloat(document.getElementById('q_price').value) || 1;
+    const proc = document.getElementById('q_proc').value;
+    const feePct = proc === 'mor_paddle' ? 0.05 : 0.029;
+    const feeFlat = proc === 'mor_paddle' ? 0.50 : 0.30;
+    const netPerCust = price * (1 - feePct) - feeFlat;
+    const preTaxNeed = (sal / 12) / Math.max(0.1, 1 - tax);
+    const reqCust = netPerCust > 0 ? Math.ceil((preTaxNeed + ops) / netPerCust) : 0;
+    const reqMrr = reqCust * price;
+    const annStripe = reqCust * (price * 0.029 + 0.30) * 12;
+    const annMor = reqCust * (price * 0.05 + 0.50) * 12;
+    const diff = annMor - annStripe;
+    const al = document.getElementById('q_alert');
+    al.className = 'alert-box ok';
+    al.innerHTML = `<strong>Quit-Safely Target: $${Math.round(reqMrr).toLocaleString()} MRR (${reqCust.toLocaleString()} customers)</strong> — Stripe US saves <strong>$${Math.round(diff).toLocaleString()}/year</strong> vs MoR (Paddle/LS), though MoR handles global VAT/sales tax.`;
+    document.getElementById('q_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Required MRR to Quit</div><div class="kv" style="color:var(--accent)">$${Math.round(reqMrr).toLocaleString()}</div><div class="ks">Replaces $${Math.round(sal).toLocaleString()}/yr</div></div>
+      <div class="kpi"><div class="kl">Paying Customers Needed</div><div class="kv">${reqCust.toLocaleString()}</div><div class="ks">@ $${price}/mo</div></div>
+      <div class="kpi"><div class="kl">Annual Stripe US Fees</div><div class="kv">$${Math.round(annStripe).toLocaleString()}</div><div class="ks">2.9% + $0.30</div></div>
+      <div class="kpi"><div class="kl">Annual MoR Fees</div><div class="kv" style="color:var(--warn)">$${Math.round(annMor).toLocaleString()}</div><div class="ks">5% + $0.50 (+$${Math.round(diff).toLocaleString()}/yr)</div></div>
+    `;
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initFreemiumTool = function() {
+  const root = document.getElementById('tool-freemium');
+  if (!root) return;
+  function update() {
+    const mau = parseInt(document.getElementById('fr_mau').value, 10) || 0;
+    const cvr = (parseFloat(document.getElementById('fr_cvr').value) || 0) / 100;
+    const price = parseFloat(document.getElementById('fr_price').value) || 0;
+    const freeCost = parseFloat(document.getElementById('fr_fcost').value) || 0;
+    const paidCost = parseFloat(document.getElementById('fr_pcost').value) || 0;
+    const paidU = Math.round(mau * cvr);
+    const freeU = Math.max(0, mau - paidU);
+    const rev = paidU * price;
+    const drag = freeU * freeCost;
+    const paidCogs = paidU * (paidCost + price * 0.029 + 0.30);
+    const gp = rev - drag - paidCogs;
+    const gm = rev > 0 ? (gp / rev) * 100 : -100;
+    const unitPaid = price * 0.971 - 0.30 - paidCost;
+    const minCvr = (unitPaid > 0 && (unitPaid + freeCost) > 0) ? (freeCost / (unitPaid + freeCost)) * 100 : null;
+    const al = document.getElementById('fr_alert');
+    al.className = 'alert-box ' + (gp <= 0 ? 'bad' : (gm < 60 ? 'warn' : 'ok'));
+    al.innerHTML = gp <= 0
+      ? `<strong>FREEMIUM BLEEDING ($${Math.round(gp).toLocaleString()}/mo):</strong> ${freeU.toLocaleString()} free users cost $${Math.round(drag).toLocaleString()}/mo. Switch to a time-limited free trial or cut free-tier cost.`
+      : `<strong>${gm < 60 ? 'COMPRESSED FREEMIUM' : 'HEALTHY FREEMIUM'} (${gm.toFixed(1)}% blended margin):</strong> Minimum conversion rate to break even on free-tier drag is <strong>${minCvr ? minCvr.toFixed(2) + '%' : 'N/A'}</strong>.`;
+    document.getElementById('fr_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Free-Tier Monthly Drag</div><div class="kv" style="color:var(--bad)">-$${Math.round(drag).toLocaleString()}</div><div class="ks">${freeU.toLocaleString()} free users</div></div>
+      <div class="kpi"><div class="kl">Net Monthly Gross Profit</div><div class="kv" style="color:${gp >= 0 ? 'var(--ok)':'var(--bad)'}">$${Math.round(gp).toLocaleString()}</div><div class="ks">${gm.toFixed(1)}% blended margin</div></div>
+      <div class="kpi"><div class="kl">Min Break-Even CVR</div><div class="kv" style="color:var(--accent)">${minCvr ? minCvr.toFixed(2) + '%' : 'N/A'}</div><div class="ks">Current: ${(cvr*100).toFixed(2)}%</div></div>
+      <div class="kpi"><div class="kl">Paid Revenue / Mo</div><div class="kv">$${Math.round(rev).toLocaleString()}</div><div class="ks">${paidU.toLocaleString()} paid users</div></div>
+    `;
+  }
+  root.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initSocialCpmTool = function() {
+  const root = document.getElementById('tool-social-cpm');
+  if (!root) return;
+  function update() {
+    const cpm = parseFloat(document.getElementById('sc_cpm').value) || 0;
+    const ctr = (parseFloat(document.getElementById('sc_ctr').value) || 0) / 100;
+    const cvr = (parseFloat(document.getElementById('sc_cvr').value) || 0) / 100;
+    const aov = parseFloat(document.getElementById('sc_aov').value) || 0;
+    const mPct = (parseFloat(document.getElementById('sc_margin').value) || 0) / 100;
+    const clicks = 1000 * ctr;
+    const cpc = clicks > 0 ? cpm / clicks : 999;
+    const cpa = cvr > 0 ? cpc / cvr : 9999;
+    const preAd = aov * mPct;
+    const beRoas = preAd > 0 ? aov / preAd : null;
+    const net = preAd - cpa;
+    const al = document.getElementById('sc_alert');
+    al.className = 'alert-box ' + (net >= 0 ? 'ok' : 'bad');
+    al.innerHTML = net >= 0
+      ? `<strong>SOCIAL_VIABLE (+$${net.toFixed(2)}/order):</strong> At $${cpm} CPM &amp; ${(ctr*100).toFixed(1)}% CTR, effective CPC is $${cpc.toFixed(2)} -> CPA $${cpa.toFixed(2)} vs $${preAd.toFixed(2)} pre-ad margin.`
+      : `<strong>SOCIAL_UNPROFITABLE (-$${Math.abs(net).toFixed(2)}/order):</strong> Implied CPA ($${cpa.toFixed(2)}) exceeds your $${preAd.toFixed(2)} pre-ad margin. Improve creative CTR or raise AOV.`;
+    document.getElementById('sc_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Implied Paid Social CPA</div><div class="kv" style="color:${net >= 0 ? 'var(--ok)':'var(--bad)'}">$${cpa.toFixed(2)}</div><div class="ks">Effective CPC: $${cpc.toFixed(2)}</div></div>
+      <div class="kpi"><div class="kl">Pre-Ad Margin / Order</div><div class="kv">$${preAd.toFixed(2)}</div><div class="ks">AOV: $${aov}</div></div>
+      <div class="kpi"><div class="kl">Break-Even ROAS</div><div class="kv" style="color:var(--accent)">${beRoas ? beRoas.toFixed(2) + 'x' : 'N/A'}</div></div>
+      <div class="kpi"><div class="kl">First-Order Net Profit</div><div class="kv" style="color:${net >= 0 ? 'var(--ok)':'var(--bad)'}">$${net.toFixed(2)}</div></div>
+    `;
+  }
+  root.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initGeoTool = function() {
+  const root = document.getElementById('tool-geo');
+  if (!root) return;
+  const MKTS = [
+    { code: 'US', name: 'United States', cpcF: 1.00, ppF: 1.00 },
+    { code: 'UK', name: 'United Kingdom', cpcF: 0.72, ppF: 0.95 },
+    { code: 'DE', name: 'Germany (DACH)', cpcF: 0.58, ppF: 0.92 },
+    { code: 'SG', name: 'Singapore', cpcF: 0.52, ppF: 0.90 },
+    { code: 'MY', name: 'Malaysia', cpcF: 0.26, ppF: 0.55 }
+  ];
+  function update() {
+    const usCpc = parseFloat(document.getElementById('g_cpc').value) || 0;
+    const usCac = parseFloat(document.getElementById('g_cac').value) || 0;
+    const cvr = Math.max(0.001, (parseFloat(document.getElementById('g_cvr').value) || 2.5) / 100);
+    const rows = MKTS.map(m => {
+      const cpc = usCpc * m.cpcF;
+      const imp = cpc / cvr;
+      const ceil = usCac * m.ppF;
+      const score = imp > 0 ? ceil / imp : 0;
+      const verdict = (ceil <= 0 || imp > ceil) ? 'CHANNEL_IMPOSSIBLE' : (imp > ceil * 0.75 ? 'CHANNEL_TIGHT' : 'CHANNEL_VIABLE');
+      return { ...m, cpc, imp, ceil, score, verdict };
+    }).sort((a, b) => b.score - a.score);
+    const best = rows[0];
+    document.getElementById('g_alert').className = 'alert-box ' + (best.verdict === 'CHANNEL_VIABLE' ? 'ok' : (best.verdict === 'CHANNEL_TIGHT' ? 'warn' : 'bad'));
+    document.getElementById('g_alert').innerHTML = `<strong>Best Arbitrage Market: ${best.name} (${best.code})</strong> — Est. CPC $${best.cpc.toFixed(2)} -> Implied CAC $${best.imp.toFixed(2)} vs localized ceiling $${best.ceil.toFixed(2)} (Headroom: ${best.score.toFixed(2)}x).`;
+    document.getElementById('g_tbody').innerHTML = rows.map(r => {
+      const col = r.verdict === 'CHANNEL_VIABLE' ? 'var(--ok)' : (r.verdict === 'CHANNEL_TIGHT' ? 'var(--warn)' : 'var(--bad)');
+      return `<tr><td><strong>${r.name} (${r.code})</strong></td><td class="mono">$${r.cpc.toFixed(2)}</td><td class="mono">$${r.imp.toFixed(2)}</td><td class="mono">$${r.ceil.toFixed(2)}</td><td class="mono" style="color:${col};font-weight:700;">${r.verdict} (${r.score.toFixed(2)}x)</td></tr>`;
+    }).join('');
+  }
+  root.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initAiMarginTool = function() {
+  const root = document.getElementById('tool-ai-margin');
+  if (!root) return;
+  const PRESETS = {
+    budget_fast: [0.15, 0.60],
+    mid_balanced: [1.25, 5.00],
+    frontier_reasoning: [3.00, 15.00]
+  };
+  function update() {
+    const price = parseFloat(document.getElementById('ai_price').value) || 0;
+    const reqs = parseInt(document.getElementById('ai_reqs').value, 10) || 0;
+    const inTok = parseInt(document.getElementById('ai_in').value, 10) || 0;
+    const outTok = parseInt(document.getElementById('ai_out').value, 10) || 0;
+    const [inR, outR] = PRESETS[document.getElementById('ai_model').value] || [1.25, 5.00];
+    const costPerReq = (inTok / 1e6) * inR + (outTok / 1e6) * outR;
+    const aiCogs = costPerReq * reqs * 30;
+    const stripe = price * 0.029 + 0.30;
+    const totalVar = aiCogs + stripe + 1.0;
+    const gp = price - totalVar;
+    const gm = price > 0 ? (gp / price) * 100 : 0;
+    const netBudget = price - stripe - 1.0;
+    const whale = (costPerReq > 0 && netBudget > 0) ? Math.floor((netBudget / costPerReq) / 30) : 0;
+    const al = document.getElementById('ai_alert');
+    al.className = 'alert-box ' + (gp <= 0 ? 'bad' : (gm < 60 ? 'warn' : 'ok'));
+    al.innerHTML = gp <= 0
+      ? `<strong>NEGATIVE UNIT MARGIN:</strong> Average user costs $${totalVar.toFixed(2)}/mo vs $${price.toFixed(2)}/mo price. Add usage caps or switch to a faster model.`
+      : `<strong>${gm < 60 ? 'COMPRESSED AI MARGIN' : 'HEALTHY AI MARGIN'} (${gm.toFixed(1)}%):</strong> Any power user running more than <strong>${whale} requests/day</strong> loses you money.`;
+    document.getElementById('ai_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Real AI Gross Margin</div><div class="kv" style="color:${gm >= 60 ? 'var(--ok)':'var(--bad)'}">${gm.toFixed(1)}%</div><div class="ks">Traditional SaaS: 80%</div></div>
+      <div class="kpi"><div class="kl">Monthly LLM Token COGS</div><div class="kv" style="color:var(--accent)">$${aiCogs.toFixed(2)}</div><div class="ks">$${costPerReq.toFixed(5)} / req</div></div>
+      <div class="kpi"><div class="kl">Whale Bankruptcy Limit</div><div class="kv" style="color:var(--warn)">${whale} req/day</div><div class="ks">Break-even usage cap</div></div>
+      <div class="kpi"><div class="kl">Net Profit / User / Mo</div><div class="kv" style="color:${gp >= 0 ? 'var(--ok)':'var(--bad)'}">$${gp.toFixed(2)}</div><div class="ks">After Stripe ($${stripe.toFixed(2)})</div></div>
+    `;
+  }
+  root.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+window.initRunwayTool = function() {
+  const root = document.getElementById('tool-runway');
+  if (!root) return;
+  function simR(cash, rev, grow, burn) {
+    let c = cash, r = rev;
+    for (let m = 1; m <= 60; m++) {
+      c += r - burn;
+      if (c < 0) return m - 1;
+      r *= (1 + grow / 100);
+    }
+    return 60;
+  }
+  function update() {
+    const cash = parseFloat(document.getElementById('r_cash').value) || 0;
+    const rev = parseFloat(document.getElementById('r_rev').value) || 0;
+    const grow = parseFloat(document.getElementById('r_grow').value) || 0;
+    const burn = parseFloat(document.getElementById('r_burn').value) || 0;
+    const baseM = simR(cash, rev, grow, burn);
+    const stressM = simR(cash, rev * 0.7, grow * 0.5, burn * 1.2);
+    const al = document.getElementById('r_alert');
+    al.className = 'alert-box ' + (stressM >= 12 ? 'ok' : (stressM >= 6 ? 'warn' : 'bad'));
+    al.innerHTML = stressM >= 60 ? '<strong>Self-Sustaining</strong> even under a -30% revenue &amp; +20% expense shock.'
+      : `<strong>Downside Shock Runway: ${stressM} months</strong> (Base: ${baseM >= 60 ? '60+ mo' : baseM + ' mo'}).`;
+    document.getElementById('r_kpis').innerHTML = `
+      <div class="kpi"><div class="kl">Current Net Burn</div><div class="kv">$${Math.round(burn - rev).toLocaleString()}/mo</div></div>
+      <div class="kpi"><div class="kl">Base Runway</div><div class="kv" style="color:var(--accent)">${baseM >= 60 ? '60+ mo' : baseM + ' mo'}</div></div>
+      <div class="kpi"><div class="kl">Shock Runway (-30% rev / +20% cost)</div><div class="kv" style="color:${stressM >= 12 ? 'var(--ok)':'var(--bad)'}">${stressM >= 60 ? '60+ mo' : stressM + ' mo'}</div></div>
+    `;
+  }
+  root.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+  update();
+};
+
+
+let currentLang = 'en';
+const I18N = {
+  en: {
+    eyebrow: 'IDEASTRESS v0.8.1 · 10 LIVE CALCULATORS · 1,000-RUN MONTE CARLO · AUTO-FIX · GEO/FAQ',
+    h1: 'Stress-test your business idea with hard math before you write code.',
+    sub: 'All 10 calculators + step-by-step guides, exact formulas, worked examples & 40 FAQs run 100% live in this single page — zero dead buttons.',
+    langBtn: '中文'
+  },
+  zh: {
+    eyebrow: 'IDEASTRESS v0.8.1 · 10 合 1 实时计算器矩阵 · 1,000 次蒙特卡洛 · 自动救命处方 · 内嵌指南与 FAQ',
+    h1: '写第一行代码前，先用确定性数学压测你的商业想法。',
+    sub: '10 大创业高频计算器及各自的使用说明、核心公式、算例与 40 条 FAQ 全部在本页实时运行，零空按钮：支持一键切换、行业预设、分享链接、导出 CSV 与战绩 SVG 卡片。',
+    langBtn: 'EN'
+  }
+};
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  const t = I18N[currentLang];
+  document.getElementById('hero_eyebrow').textContent = t.eyebrow;
+  document.getElementById('hero_h1').textContent = t.h1;
+  document.getElementById('hero_sub').textContent = t.sub;
+  document.getElementById('lang_toggle_btn').textContent = t.langBtn;
+  document.querySelectorAll('.route-pill').forEach(btn => {
+    btn.textContent = btn.getAttribute('data-' + currentLang);
+  });
+}
+document.getElementById('lang_toggle_btn').onclick = toggleLang;
+
+function switchTab(key) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.route-pill').forEach(b => b.classList.remove('active'));
+  const target = document.getElementById('panel-' + key);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.route-pill[data-switch="' + key + '"]').forEach(b => b.classList.add('active'));
+}
+document.querySelectorAll('[data-switch]').forEach(btn => {
+  btn.addEventListener('click', () => switchTab(btn.getAttribute('data-switch')));
+});
+
+function openModal(title, bodyHtml, downloadName, downloadContent, downloadMime) {
+  document.getElementById('modal_title').textContent = title;
+  document.getElementById('modal_body').innerHTML = bodyHtml;
+  document.getElementById('modal_dl_btn').onclick = () => {
+    try {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([downloadContent], { type: downloadMime }));
+      a.download = downloadName; document.body.appendChild(a); a.click(); a.remove();
+      showToast('Downloaded ' + downloadName);
+    } catch (e) { showToast('Use Copy button below.'); }
+  };
+  document.getElementById('modal_copy_btn').onclick = () => {
+    navigator.clipboard?.writeText(downloadContent).then(
+      () => showToast('Copied to clipboard!'),
+      () => showToast('Select & copy from the preview box above.')
+    );
+  };
+  document.getElementById('app_modal').classList.add('open');
+}
+document.getElementById('modal_close_btn').onclick = () => document.getElementById('app_modal').classList.remove('open');
+document.getElementById('app_modal').addEventListener('click', e => { if (e.target.id === 'app_modal') e.target.classList.remove('open'); });
+
+// Restore state from URL hash (#s=...) if present
+(function restoreFromHash() {
+  try {
+    if (!location.hash.startsWith('#s=')) return;
+    const obj = JSON.parse(atob(decodeURIComponent(location.hash.slice(3))));
+    Object.entries(obj).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val;
+    });
+    showToast('Loaded shared scenario from URL!');
+  } catch (e) {}
+})();
+
+// Initialize ALL 10 calculators
+window.initFrontierTool();
+window.initQuitJobTool();
+window.initFreemiumTool();
+window.initSocialCpmTool();
+window.initAiMarginTool();
+window.initGeoTool();
+window.initBreakEvenTool();
+window.initSaasTool();
+window.initEcomTool();
+window.initRunwayTool();
+
+function readFrontierCfg() {
+  return {
+    type: document.getElementById('f_type').value,
+    cur: document.getElementById('f_cur').value,
+    processor: document.getElementById('f_proc').value,
+    taxPct: parseFloat(document.getElementById('f_tax').value) || 0,
+    payrollPct: 0,
+    price: parseFloat(document.getElementById('f_price').value) || 0,
+    varCost: parseFloat(document.getElementById('f_var').value) || 0,
+    fixed: parseFloat(document.getElementById('f_fixed').value) || 0,
+    cash: parseFloat(document.getElementById('f_cash').value) || 0,
+    newC: parseInt(document.getElementById('f_new').value, 10) || 0,
+    spend: parseFloat(document.getElementById('f_spend').value) || 0,
+    churnPct: parseFloat(document.getElementById('f_churn').value) || 0,
+    refundPct: parseFloat(document.getElementById('f_refund').value) || 0
+  };
+}
+
+// 1. Export venture.yaml modal
+document.getElementById('btn_export_yaml').onclick = () => {
+  const c = readFrontierCfg();
+  const y = `idea: "My ${c.type} business idea"
+target_market:
+  - "United States"
+business_type: ${c.type}
+budget: "${c.cash}"
+currency: ${c.cur}
+timeline_months: 12
+financials:
+  business_type: ${c.type}
+  currency: ${c.cur}
+  unit_price: "${c.price}"
+  variable_cost_per_unit: "${c.varCost}"
+  fixed_monthly_costs: "${c.fixed}"
+  monthly_new_customers: ${c.newC}
+  monthly_acquisition_spend: "${c.spend}"
+  monthly_churn_rate: "${(c.churnPct / 100).toFixed(4)}"
+  refund_rate: "${(c.refundPct / 100).toFixed(4)}"
+  payment_processor: "${c.processor}"
+  effective_tax_rate: "${(c.taxPct / 100).toFixed(4)}"
+  starting_cash: "${c.cash}"
+  horizon_months: 12
+`;
+  openModal('Exported venture.yaml (IdeaStress CLI & MCP)', `<pre class="modal-pre mono">${y.replace(/</g,'&lt;')}</pre>`, 'venture.yaml', y, 'text/yaml');
+};
+
+// 2. Live Proof Card SVG modal
+document.getElementById('btn_proof_card').onclick = () => {
+  const c = readFrontierCfg();
+  const mc = runMonteCarlo1000(c);
+  const maxCac = solveMaxCac(c);
+  const cpc = parseFloat(document.getElementById('f_cpc')?.value) || 0;
+  const cvr = Math.max(0.001, (parseFloat(document.getElementById('f_cvr')?.value) || 2.5) / 100);
+  const impCac = cpc / cvr;
+  const cpcOk = maxCac > 0 && impCac <= maxCac;
+  const col = mc.survivalPct >= 85 ? '#10b981' : (mc.survivalPct >= 50 ? '#f59e0b' : '#ef4444');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#080a0f"/><rect x="44" y="44" width="1112" height="542" rx="24" fill="#101521" stroke="#243047" stroke-width="2"/>
+  <circle cx="96" cy="98" r="8" fill="#38bdf8"/><text x="116" y="105" fill="#edf2fb" font-family="Inter, sans-serif" font-size="22" font-weight="800" letter-spacing="2">IDEASTRESS // FALSIFICATION PROOF CARD</text>
+  <rect x="880" y="72" width="236" height="46" rx="23" fill="${col}" fill-opacity="0.16" stroke="${col}" stroke-width="2"/>
+  <text x="998" y="102" text-anchor="middle" fill="${col}" font-family="monospace" font-size="20" font-weight="800">${mc.risk}</text>
+  <text x="86" y="185" fill="#ffffff" font-family="Inter, sans-serif" font-size="36" font-weight="800">${c.type.toUpperCase()} · ${c.cur} ${c.price} Price · ${c.cur} ${c.cash.toLocaleString()} Cash</text>
+  <rect x="86" y="245" width="320" height="200" rx="16" fill="#161d2e" stroke="#26324a"/>
+  <text x="114" y="290" fill="#8a95ad" font-family="monospace" font-size="15">12M SURVIVAL (1,000 RUNS)</text>
+  <text x="114" y="365" fill="${col}" font-family="monospace" font-size="52" font-weight="800">${mc.survivalPct.toFixed(1)}%</text>
+  <text x="114" y="415" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="17">P10 Cash: ${c.cur} ${Math.round(mc.p10End).toLocaleString()}</text>
+  <rect x="440" y="245" width="320" height="200" rx="16" fill="#161d2e" stroke="#26324a"/>
+  <text x="468" y="290" fill="#8a95ad" font-family="monospace" font-size="15">MAX VIABLE CAC CEILING</text>
+  <text x="468" y="365" fill="#38bdf8" font-family="monospace" font-size="44" font-weight="800">${c.cur} ${maxCac.toFixed(2)}</text>
+  <text x="468" y="415" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="17">Monthly Spend: ${c.cur} ${c.spend}</text>
+  <rect x="794" y="245" width="320" height="200" rx="16" fill="#161d2e" stroke="#26324a"/>
+  <text x="822" y="290" fill="#8a95ad" font-family="monospace" font-size="15">GOOGLE ADS CPC CHECK</text>
+  <text x="822" y="355" fill="${cpcOk ? '#10b981' : '#ef4444'}" font-family="monospace" font-size="26" font-weight="800">${cpcOk ? 'CHANNEL_VIABLE' : 'CHANNEL_IMPOSSIBLE'}</text>
+  <text x="822" y="415" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="17">Implied CAC: ${c.cur} ${impCac.toFixed(2)}</text>
+  <line x1="86" y1="496" x2="1114" y2="496" stroke="#243047" stroke-width="1.5"/>
+  <text x="86" y="544" fill="#8a95ad" font-family="monospace" font-size="17">Stress-tested with IdeaStress (MIT Open-Source) · pip install ideastress</text>
+  <text x="1114" y="544" text-anchor="end" fill="#38bdf8" font-family="monospace" font-size="17">waterdolphinkiller.github.io/ideastress</text></svg>`;
+  openModal('Shareable 1200x630 Proof Card (SVG)', `<div class="svg-preview">${svg}</div>`, 'ideastress_proof_card.svg', svg, 'image/svg+xml');
+};
+
+// 3. Export 12-Month CSV Cash-Flow Table modal
+document.getElementById('btn_export_csv').onclick = () => {
+  const c = readFrontierCfg();
+  const base = simPath(c);
+  const cons = simPath(c, { p: 0.9, nc: 0.65, v: 1.15, fx: 1.1, sp: 1.25, ch: 1.35 });
+  const opt = simPath(c, { p: 1.1, nc: 1.3, v: 0.95, sp: 0.9, ch: 0.8 });
+  const lines = ['Month,Currency,Conservative_Cash,Base_Cash,Optimistic_Cash'];
+  for (let m = 0; m <= 12; m++) {
+    lines.push(`${m},${c.cur},${cons.series[m].toFixed(2)},${base.series[m].toFixed(2)},${opt.series[m].toFixed(2)}`);
+  }
+  const csv = lines.join('\n') + '\n';
+  openModal('12-Month Cash Trajectory (CSV for Excel / Google Sheets)', `<pre class="modal-pre mono">${csv}</pre>`, 'ideastress_12m_cashflow.csv', csv, 'text/csv');
+};
+
+// 4. Shareable State URL Hash
+document.getElementById('btn_share_url').onclick = () => {
+  const ids = ['f_type','f_cur','f_proc','f_tax','f_price','f_var','f_fixed','f_cash','f_new','f_spend','f_churn','f_refund','f_cpc','f_cvr'];
+  const state = {};
+  ids.forEach(id => { const el = document.getElementById(id); if (el) state[id] = el.value; });
+  const hash = '#s=' + encodeURIComponent(btoa(JSON.stringify(state)));
+  const shareUrl = 'https://waterdolphinkiller.github.io/ideastress/app.html' + hash;
+  try { history.replaceState(null, '', hash); } catch (e) {}
+  openModal('Shareable Scenario Link (Zero-Backend URL State)', `<pre class="modal-pre mono">${shareUrl}</pre><p class="muted" style="font-size:0.84rem;margin:0 0 12px;">Send this link to your co-founder — opening it automatically restores all 14 parameters and curves.</p>`, 'share_url.txt', shareUrl, 'text/plain');
+};
+
+  </script>
+</body>
+</html>

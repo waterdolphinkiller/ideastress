@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free E-Commerce Profit Margin & Break-Even ROAS Calculator | IdeaStress</title>
+  <meta name="description" content="Calculate exact Break-Even ROAS, max profitable CPA, and first-order net profit after COGS, shipping, and Stripe US card fees." />
+  <link rel="canonical" href="https://waterdolphinkiller.github.io/ideastress/ecommerce-roas-calculator/" />
+  <meta property="og:title" content="Free E-Commerce Profit Margin & Break-Even ROAS Calculator | IdeaStress" />
+  <meta property="og:description" content="Calculate exact Break-Even ROAS, max profitable CPA, and first-order net profit after COGS, shipping, and Stripe US card fees." />
+  <meta property="og:url" content="https://waterdolphinkiller.github.io/ideastress/ecommerce-roas-calculator/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Free E-Commerce Profit Margin & Break-Even ROAS Calculator | IdeaStress",
+      "url": "https://waterdolphinkiller.github.io/ideastress/ecommerce-roas-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate exact Break-Even ROAS, max profitable CPA, and first-order net profit after COGS, shipping, and Stripe US card fees."
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the E-Commerce Profit Margin & Break-Even ROAS Calculator",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "text": "Enter Average Order Value (AOV), product COGS, shipping/fulfillment cost, and your payment fee preset."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "text": "Input your blended paid ad CPA / CAC."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "text": "Read your exact Break-Even ROAS floor, maximum profitable CPA, and real first-order net profit."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Break-Even ROAS in e-commerce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Break-Even ROAS (Return on Ad Spend) is the minimum ad revenue multiple required so first-order gross profit exactly covers your ad spend. Any ROAS below this floor loses money on every new customer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the average e-commerce CAC in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "First Page Sage benchmarks place blended e-commerce CAC between $53 and $91 across 13 verticals, which is why low-AOV stores (<$40) struggle on paid ads without high repeat purchase rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a realistic Shopify conversion rate in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Littledata's late-2026 Shopify dataset reports a 1.4% median store conversion rate, with the top 20% exceeding 2.7% and top 10% exceeding 3.7%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do e-commerce gross margins vary by category?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hycos 2026 benchmarks show 60%\u201380% for Beauty & Skincare, 55%\u201370% for Health & Supplements, 45%\u201365% for Fashion & Apparel, and 15%\u201330% for Consumer Electronics."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <a class="logo" href="../index.html"><span class="dot"></span>IDEA<span>STRESS</span></a>
+      <div class="nav-links">
+        <a href="../reverse-cac-calculator/index.html">Reverse CAC</a>
+        <a href="../break-even-calculator/index.html">Break-Even</a>
+        <a href="../saas-ltv-cac-calculator/index.html">SaaS LTV/CAC</a>
+        <a href="../ecommerce-roas-calculator/index.html">E-Com ROAS</a>
+        <a href="../startup-runway-calculator/index.html">Runway</a>
+        <a href="../ai-token-margin-calculator/index.html">AI Margin</a>
+        <a href="../geo-arbitrage-cpc-scanner/index.html">Geo-Arbitrage</a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">IDEASTESS v0.8.1 · 1,000-RUN MONTE CARLO · US STRIPE &amp; TAX PRESETS</div>
+      <h1>Free E-Commerce Profit Margin & Break-Even ROAS Calculator</h1>
+      <p>Calculate exact Break-Even ROAS, max profitable CPA, and first-order net profit after COGS, shipping, and Stripe US card fees.</p>
+      <div class="route-bar"><a class="route-pill" href="../index.html">Home & Monte Carlo Solver</a><a class="route-pill" href="../reverse-cac-calculator/index.html">Reverse CAC Solver</a><a class="route-pill" href="../break-even-calculator/index.html">Break-Even</a><a class="route-pill" href="../saas-ltv-cac-calculator/index.html">SaaS LTV / CAC</a><a class="route-pill active" href="../ecommerce-roas-calculator/index.html">E-Commerce ROAS</a><a class="route-pill" href="../startup-runway-calculator/index.html">Startup Runway</a><a class="route-pill" href="../ai-token-margin-calculator/index.html">AI Token Margin</a><a class="route-pill" href="../geo-arbitrage-cpc-scanner/index.html">Geo-Arbitrage CPC</a><a class="route-pill" href="../quit-job-mrr-calculator/index.html">Quit-Job MRR</a><a class="route-pill" href="../freemium-economics-calculator/index.html">Freemium Drag</a><a class="route-pill" href="../meta-tiktok-cpm-calculator/index.html">Meta/TikTok CPM</a></div>
+    </section>
+    <script src="../assets/engine.js"></script>
+    
+<div id="tool-ecom" class="workspace">
+  <div class="card">
+    <h2>E-Commerce Margin &amp; Break-Even ROAS</h2>
+    <p class="sub">Exact Break-Even ROAS and first-order net profit after COGS, shipping, and Stripe US card fees.</p>
+    <div class="field"><label>Payment Preset</label><select id="e_proc"><option value="stripe_us" selected>Stripe / Shopify Payments US (2.9%+$0.30)</option><option value="none">None (0%)</option></select></div>
+    <div class="field"><label>Average Order Value — AOV ($)</label><input id="e_aov" type="number" value="68" /></div>
+    <div class="field"><label>Product COGS ($)</label><input id="e_cogs" type="number" value="19" /></div>
+    <div class="field"><label>Shipping &amp; Fulfillment ($)</label><input id="e_ship" type="number" value="7" /></div>
+    <div class="field"><label>Paid Ad CPA / CAC ($)</label><input id="e_cpa" type="number" value="34" /></div>
+  </div>
+  <div class="card">
+    <div id="e_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="e_kpis"></div>
+  </div>
+</div>
+<script>window.addEventListener('DOMContentLoaded', () => window.initEcomTool());</script>
+
+    
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Enter Average Order Value (AOV), product COGS, shipping/fulfillment cost, and your payment fee preset.</li><li>Input your blended paid ad CPA / CAC.</li><li>Read your exact Break-Even ROAS floor, maximum profitable CPA, and real first-order net profit.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Pre_Ad_Margin = AOV − COGS − Shipping − Payment_Fee
+Break_Even_ROAS = AOV / Pre_Ad_Margin
+First_Order_Net_Profit = Pre_Ad_Margin − Ad_CPA</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">On a $68 AOV order with $19 COGS, $7 shipping, and $2.27 Stripe/Shopify fee, pre-ad margin is $39.73 (58.4%). Break-Even ROAS is 68 / 39.73 = 1.71x. At a $34 paid ad CPA, you keep $5.73 first-order net profit.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is Break-Even ROAS in e-commerce?</h3><p>Break-Even ROAS (Return on Ad Spend) is the minimum ad revenue multiple required so first-order gross profit exactly covers your ad spend. Any ROAS below this floor loses money on every new customer.</p></div><div class="faq-item"><h3>What is the average e-commerce CAC in 2026?</h3><p>First Page Sage benchmarks place blended e-commerce CAC between $53 and $91 across 13 verticals, which is why low-AOV stores (<$40) struggle on paid ads without high repeat purchase rates.</p></div><div class="faq-item"><h3>What is a realistic Shopify conversion rate in 2026?</h3><p>Littledata's late-2026 Shopify dataset reports a 1.4% median store conversion rate, with the top 20% exceeding 2.7% and top 10% exceeding 3.7%.</p></div><div class="faq-item"><h3>How do e-commerce gross margins vary by category?</h3><p>Hycos 2026 benchmarks show 60%–80% for Beauty & Skincare, 55%–70% for Health & Supplements, 45%–65% for Fashion & Apparel, and 15%–30% for Consumer Electronics.</p></div></div>
+</section>
+
+    
+<section class="section">
+  <h2>2025–2026 Cited Industry Base Rates &amp; US Payment Benchmarks</h2>
+  <p class="lead">Every IdeaStress warning is grounded in published empirical medians rather than unverified LLM guesses.</p>
+  <div class="card" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Category</th><th>Metric</th><th>2025–2026 Benchmark</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill">SaaS</span></td><td>Monthly Customer Churn</td><td class="mono">6.2% (ARPA &lt;$25) · 2.6% (ARPA &gt;$1,000)</td><td><a href="https://chartmogul.com/benchmarks/" target="_blank" rel="noopener">ChartMogul (Nov 2026)</a></td></tr>
+        <tr><td><span class="pill">SaaS</span></td><td>Gross Margin / Payback / LTV:CAC</td><td class="mono">80% median · 16 mo · 4.1x</td><td><a href="https://www.subscriptionplaybook.com/benchmarks/" target="_blank" rel="noopener">Benchmarkit / SubscriptionPlaybook (2026)</a></td></tr>
+        <tr><td><span class="pill">US Payments</span></td><td>Standard US Domestic Card Fee</td><td class="mono">2.9% + $0.30 (+0.7% Stripe Billing; MoR 5% + $0.50)</td><td><a href="https://stripe.com/pricing" target="_blank" rel="noopener">Stripe US Pricing (2026)</a></td></tr>
+        <tr><td><span class="pill">Indie SaaS</span></td><td>Revenue Distribution (3,700+ startups)</td><td class="mono">$145 median MRR · 6.1% &gt; $10K MRR</td><td><a href="https://bigideasdb.com/dimeadozen-alternative" target="_blank" rel="noopener">TrustMRR / BigIdeasDB (Sep 2026)</a></td></tr>
+        <tr><td><span class="pill">E-Commerce</span></td><td>Shopify Conversion / Blended CAC</td><td class="mono">1.4% median CVR · $53–$91 blended CAC</td><td><a href="https://eulav.io/insights/average-ecommerce-conversion-rate/" target="_blank" rel="noopener">Littledata / First Page Sage (2026)</a></td></tr>
+        <tr><td><span class="pill">Local / SMB</span></td><td>US 94-Sector Net Margin</td><td class="mono">9.74% average (Restaurants 3%–9%)</td><td><a href="https://christopholivierconsulting.com/profit-margin-by-industry/" target="_blank" rel="noopener">NYU Stern &amp; VantaInsights (2026)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+    <footer>
+      <div><strong>IdeaStress v0.8.1</strong> · Open-Source MIT · Preliminary feasibility math only (not financial, tax, or legal advice).</div>
+      <div class="mono">CLI &amp; MCP: pip install ideastress &amp;&amp; ideastress mcp</div>
+    </footer>
+  </main>
+  <div class="toast" id="toast"></div>
+</body>
+</html>

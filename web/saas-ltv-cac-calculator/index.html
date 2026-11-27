@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free SaaS LTV / CAC & Payback Calculator (2026 Benchmarks) | IdeaStress</title>
+  <meta name="description" content="Calculate gross-margin-adjusted SaaS LTV, LTV:CAC ratio, and CAC payback months calibrated against 2026 ChartMogul & Benchmarkit medians." />
+  <link rel="canonical" href="https://waterdolphinkiller.github.io/ideastress/saas-ltv-cac-calculator/" />
+  <meta property="og:title" content="Free SaaS LTV / CAC & Payback Calculator (2026 Benchmarks) | IdeaStress" />
+  <meta property="og:description" content="Calculate gross-margin-adjusted SaaS LTV, LTV:CAC ratio, and CAC payback months calibrated against 2026 ChartMogul & Benchmarkit medians." />
+  <meta property="og:url" content="https://waterdolphinkiller.github.io/ideastress/saas-ltv-cac-calculator/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Free SaaS LTV / CAC & Payback Calculator (2026 Benchmarks) | IdeaStress",
+      "url": "https://waterdolphinkiller.github.io/ideastress/saas-ltv-cac-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate gross-margin-adjusted SaaS LTV, LTV:CAC ratio, and CAC payback months calibrated against 2026 ChartMogul & Benchmarkit medians."
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use the SaaS LTV / CAC & Payback Calculator (2026 Benchmarks)",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "text": "Select your SaaS billing fee preset (Stripe US + Billing 3.6% + $0.30 or MoR 5% + $0.50)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "text": "Enter Monthly ARPA, Gross Margin %, Monthly Customer Churn %, and Customer Acquisition Cost (CAC)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "text": "Check your LTV:CAC ratio against the 3.0x baseline (2026 private SaaS median is 4.1x) and CAC Payback against the 16-month median."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a healthy SaaS LTV:CAC ratio in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3.0x remains the minimum healthy rule of thumb, while 2026 private SaaS medians sit around 4.1x with an 80% software gross margin and 16-month CAC payback period (Benchmarkit / SubscriptionPlaybook 2026)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is average monthly churn for low-priced SaaS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to ChartMogul's November 2026 benchmarks, median monthly customer churn is 6.2% for SaaS with ARPA under $25, compared to 2.6% for SaaS above $1,000 ARPA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why must LTV be gross-margin adjusted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using raw revenue instead of gross profit overstates customer value, especially for AI-heavy SaaS products where LLM token COGS compress gross margin well below 80%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can LTV be calculated if monthly churn is 0%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Dividing by zero produces infinity; with zero observed churn on a small early cohort, treat LTV as unvalidated until at least 3\u20136 months of retention data exist."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <a class="logo" href="../index.html"><span class="dot"></span>IDEA<span>STRESS</span></a>
+      <div class="nav-links">
+        <a href="../reverse-cac-calculator/index.html">Reverse CAC</a>
+        <a href="../break-even-calculator/index.html">Break-Even</a>
+        <a href="../saas-ltv-cac-calculator/index.html">SaaS LTV/CAC</a>
+        <a href="../ecommerce-roas-calculator/index.html">E-Com ROAS</a>
+        <a href="../startup-runway-calculator/index.html">Runway</a>
+        <a href="../ai-token-margin-calculator/index.html">AI Margin</a>
+        <a href="../geo-arbitrage-cpc-scanner/index.html">Geo-Arbitrage</a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">IDEASTESS v0.8.1 · 1,000-RUN MONTE CARLO · US STRIPE &amp; TAX PRESETS</div>
+      <h1>Free SaaS LTV / CAC & Payback Calculator (2026 Benchmarks)</h1>
+      <p>Calculate gross-margin-adjusted SaaS LTV, LTV:CAC ratio, and CAC payback months calibrated against 2026 ChartMogul & Benchmarkit medians.</p>
+      <div class="route-bar"><a class="route-pill" href="../index.html">Home & Monte Carlo Solver</a><a class="route-pill" href="../reverse-cac-calculator/index.html">Reverse CAC Solver</a><a class="route-pill" href="../break-even-calculator/index.html">Break-Even</a><a class="route-pill active" href="../saas-ltv-cac-calculator/index.html">SaaS LTV / CAC</a><a class="route-pill" href="../ecommerce-roas-calculator/index.html">E-Commerce ROAS</a><a class="route-pill" href="../startup-runway-calculator/index.html">Startup Runway</a><a class="route-pill" href="../ai-token-margin-calculator/index.html">AI Token Margin</a><a class="route-pill" href="../geo-arbitrage-cpc-scanner/index.html">Geo-Arbitrage CPC</a><a class="route-pill" href="../quit-job-mrr-calculator/index.html">Quit-Job MRR</a><a class="route-pill" href="../freemium-economics-calculator/index.html">Freemium Drag</a><a class="route-pill" href="../meta-tiktok-cpm-calculator/index.html">Meta/TikTok CPM</a></div>
+    </section>
+    <script src="../assets/engine.js"></script>
+    
+<div id="tool-saas" class="workspace">
+  <div class="card">
+    <h2>SaaS LTV / CAC &amp; Payback Calculator</h2>
+    <p class="sub">Gross-margin-adjusted LTV net of Stripe Billing fees, calibrated against 2026 SaaS medians.</p>
+    <div class="field"><label>Payment Preset</label><select id="s_proc"><option value="stripe_saas" selected>Stripe US + Billing (3.6%+$0.30)</option><option value="stripe_us">Stripe US Card Only (2.9%+$0.30)</option><option value="mor_paddle">MoR Paddle/LS (5%+$0.50)</option><option value="none">None (0%)</option></select></div>
+    <div class="field"><label>Monthly ARPA ($)</label><input id="s_arpa" type="number" value="49" /></div>
+    <div class="field"><label>Gross Margin (%)</label><input id="s_gm" type="number" value="80" /></div>
+    <div class="field"><label>Monthly Customer Churn (%)</label><input id="s_churn" type="number" value="5.5" step="0.5" /></div>
+    <div class="field"><label>Customer Acquisition Cost — CAC ($)</label><input id="s_cac" type="number" value="180" /></div>
+  </div>
+  <div class="card">
+    <div id="s_alert" class="alert-box"></div>
+    <div class="kpi-grid" id="s_kpis"></div>
+  </div>
+</div>
+<script>window.addEventListener('DOMContentLoaded', () => window.initSaasTool());</script>
+
+    
+<section class="section">
+  <h2>How to Use &amp; Exact Formula</h2>
+  <p class="lead">Transparent deterministic math — inspect every formula and worked example before trusting any projection.</p>
+  <div class="row-2" style="gap:18px;align-items:start;">
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">3-Step Quick Guide</h3>
+      <ol style="padding-left:20px;margin:8px 0 0;color:var(--muted);font-size:0.9rem;"><li>Select your SaaS billing fee preset (Stripe US + Billing 3.6% + $0.30 or MoR 5% + $0.50).</li><li>Enter Monthly ARPA, Gross Margin %, Monthly Customer Churn %, and Customer Acquisition Cost (CAC).</li><li>Check your LTV:CAC ratio against the 3.0x baseline (2026 private SaaS median is 4.1x) and CAC Payback against the 16-month median.</li></ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;font-size:1rem;">Formula &amp; Worked Example</h3>
+      <pre class="mono" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px;overflow-x:auto;font-size:0.8rem;color:#cbd5e1;margin:0 0 10px;">Monthly_Gross_Profit = (ARPA × Gross_Margin_Pct) − Payment_Fee
+LTV = Monthly_Gross_Profit / Monthly_Churn_Rate
+CAC_Payback_Months = CAC / Monthly_Gross_Profit</pre>
+      <p style="margin:0;font-size:0.86rem;color:var(--muted);">For a $49/mo SaaS with 80% gross margin, Stripe Billing fee ($2.06), 5.5% monthly churn, and $180 CAC: net monthly gross profit is $37.14, LTV is $675, LTV:CAC is 3.75x (healthy > 3.0x), and CAC payback is 4.8 months.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid"><div class="faq-item"><h3>What is a healthy SaaS LTV:CAC ratio in 2026?</h3><p>3.0x remains the minimum healthy rule of thumb, while 2026 private SaaS medians sit around 4.1x with an 80% software gross margin and 16-month CAC payback period (Benchmarkit / SubscriptionPlaybook 2026).</p></div><div class="faq-item"><h3>What is average monthly churn for low-priced SaaS?</h3><p>According to ChartMogul's November 2026 benchmarks, median monthly customer churn is 6.2% for SaaS with ARPA under $25, compared to 2.6% for SaaS above $1,000 ARPA.</p></div><div class="faq-item"><h3>Why must LTV be gross-margin adjusted?</h3><p>Using raw revenue instead of gross profit overstates customer value, especially for AI-heavy SaaS products where LLM token COGS compress gross margin well below 80%.</p></div><div class="faq-item"><h3>Can LTV be calculated if monthly churn is 0%?</h3><p>No. Dividing by zero produces infinity; with zero observed churn on a small early cohort, treat LTV as unvalidated until at least 3–6 months of retention data exist.</p></div></div>
+</section>
+
+    
+<section class="section">
+  <h2>2025–2026 Cited Industry Base Rates &amp; US Payment Benchmarks</h2>
+  <p class="lead">Every IdeaStress warning is grounded in published empirical medians rather than unverified LLM guesses.</p>
+  <div class="card" style="overflow-x:auto;">
+    <table>
+      <thead><tr><th>Category</th><th>Metric</th><th>2025–2026 Benchmark</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill">SaaS</span></td><td>Monthly Customer Churn</td><td class="mono">6.2% (ARPA &lt;$25) · 2.6% (ARPA &gt;$1,000)</td><td><a href="https://chartmogul.com/benchmarks/" target="_blank" rel="noopener">ChartMogul (Nov 2026)</a></td></tr>
+        <tr><td><span class="pill">SaaS</span></td><td>Gross Margin / Payback / LTV:CAC</td><td class="mono">80% median · 16 mo · 4.1x</td><td><a href="https://www.subscriptionplaybook.com/benchmarks/" target="_blank" rel="noopener">Benchmarkit / SubscriptionPlaybook (2026)</a></td></tr>
+        <tr><td><span class="pill">US Payments</span></td><td>Standard US Domestic Card Fee</td><td class="mono">2.9% + $0.30 (+0.7% Stripe Billing; MoR 5% + $0.50)</td><td><a href="https://stripe.com/pricing" target="_blank" rel="noopener">Stripe US Pricing (2026)</a></td></tr>
+        <tr><td><span class="pill">Indie SaaS</span></td><td>Revenue Distribution (3,700+ startups)</td><td class="mono">$145 median MRR · 6.1% &gt; $10K MRR</td><td><a href="https://bigideasdb.com/dimeadozen-alternative" target="_blank" rel="noopener">TrustMRR / BigIdeasDB (Sep 2026)</a></td></tr>
+        <tr><td><span class="pill">E-Commerce</span></td><td>Shopify Conversion / Blended CAC</td><td class="mono">1.4% median CVR · $53–$91 blended CAC</td><td><a href="https://eulav.io/insights/average-ecommerce-conversion-rate/" target="_blank" rel="noopener">Littledata / First Page Sage (2026)</a></td></tr>
+        <tr><td><span class="pill">Local / SMB</span></td><td>US 94-Sector Net Margin</td><td class="mono">9.74% average (Restaurants 3%–9%)</td><td><a href="https://christopholivierconsulting.com/profit-margin-by-industry/" target="_blank" rel="noopener">NYU Stern &amp; VantaInsights (2026)</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+    <footer>
+      <div><strong>IdeaStress v0.8.1</strong> · Open-Source MIT · Preliminary feasibility math only (not financial, tax, or legal advice).</div>
+      <div class="mono">CLI &amp; MCP: pip install ideastress &amp;&amp; ideastress mcp</div>
+    </footer>
+  </main>
+  <div class="toast" id="toast"></div>
+</body>
+</html>

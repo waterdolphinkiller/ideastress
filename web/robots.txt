@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI Search & GEO retrieval crawlers
+User-agent: Googlebot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://waterdolphinkiller.github.io/ideastress/sitemap.xml
+# AI / LLM Index: https://waterdolphinkiller.github.io/ideastress/llms.txt

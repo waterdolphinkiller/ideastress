@@ -1,0 +1,31 @@
+idea: "AI-assisted bookkeeping and tax-prep SaaS for solo US freelancers and micro-agencies"
+target_market:
+  - "United States"
+customer_segment: "US solo freelancers earning $60k-$200k/year"
+business_type: saas
+budget: "12000"
+currency: USD
+timeline_months: 12
+team_size: 1
+founder_strengths:
+  - "Full-stack Python/TypeScript engineering"
+  - "SEO free calculator building"
+constraints:
+  - "Bootstrapped, no VC funding"
+  - "Updated after 10-day Google Ads smoke test: real CAC came in at $95, churn at 9%"
+mode: quick
+financials:
+  business_type: saas
+  currency: USD
+  tax_included: false
+  unit_price: "39"
+  variable_cost_per_unit: "8"
+  fixed_monthly_costs: "1200"
+  starting_customers: 0
+  monthly_new_customers: 10
+  monthly_acquisition_spend: "950"
+  observed_cac: "95"
+  monthly_churn_rate: "0.09"
+  refund_rate: "0.03"
+  starting_cash: "12000"
+  horizon_months: 12

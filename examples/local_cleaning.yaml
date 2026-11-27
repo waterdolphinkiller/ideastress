@@ -1,0 +1,21 @@
+idea: "Recurring eco-friendly condo cleaning service in Kuala Lumpur"
+target_market:
+  - "Malaysia"
+customer_segment: "Dual-income condo households in Mont Kiara & Bangsar"
+business_type: local_service
+budget: "25000"
+currency: MYR
+timeline_months: 12
+team_size: 3
+mode: quick
+financials:
+  business_type: local_service
+  currency: MYR
+  unit_price: "180"
+  variable_cost_per_unit: "105"
+  fixed_monthly_costs: "3800"
+  monthly_new_customers: 75
+  monthly_acquisition_spend: "1200"
+  refund_rate: "0.01"
+  starting_cash: "25000"
+  horizon_months: 12

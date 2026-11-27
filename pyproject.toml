@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ideastress"
+version = "0.8.1"
+description = "Open-source Business-as-Code feasibility, reverse unit-economics solver, 1,000-run Monte Carlo, real CPC falsification, AI token margin stress-tester, and evidence-first engine for founders & AI agents."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "IdeaStress Contributors"}
+]
+keywords = [
+    "startup-validation",
+    "business-feasibility",
+    "unit-economics",
+    "financial-modeling",
+    "monte-carlo",
+    "red-team",
+    "mcp",
+    "ai-agents",
+    "due-diligence",
+]
+dependencies = [
+    "pydantic>=1.10,<3.0",
+    "click>=8.1",
+    "rich>=13.0",
+    "PyYAML>=6.0",
+    "Jinja2>=3.1",
+    "httpx>=0.23",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.4",
+    "mypy>=1.8",
+]
+
+[project.scripts]
+ideastress = "ideastress.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

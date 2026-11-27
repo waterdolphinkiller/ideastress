@@ -1,0 +1,23 @@
+idea: "Direct-to-consumer magnesium & sleep supplement subscription brand"
+target_market:
+  - "United States"
+customer_segment: "Remote tech workers aged 28-45 with sleep issues"
+business_type: ecommerce
+budget: "18000"
+currency: USD
+timeline_months: 12
+team_size: 2
+mode: quick
+financials:
+  business_type: ecommerce
+  currency: USD
+  unit_price: "58"
+  variable_cost_per_unit: "21"
+  fixed_monthly_costs: "1800"
+  monthly_visitors: 4000
+  conversion_rate: "0.032"
+  monthly_new_customers: 128
+  monthly_acquisition_spend: "3200"
+  refund_rate: "0.04"
+  starting_cash: "18000"
+  horizon_months: 12
