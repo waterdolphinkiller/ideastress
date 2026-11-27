@@ -2,10 +2,7 @@
 
 **Falsify the math _before_ you write the code.**
 
-[![Live 10-in-1 Workbench](https://img.shields.io/badge/Live%20Workbench-10%20Calculators-C9A96E?style=for-the-badge)](https://waterdolphinkiller.github.io/ideastress/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-4E9F7C?style=for-the-badge)](LICENSE)
-[![MCP Server](https://img.shields.io/badge/MCP-12%20Tools-141418?style=for-the-badge)](#12-tool-mcp-server-claude-code--cursor--codex)
-[![Tests](https://img.shields.io/badge/Tests-47%2F47%20Passing-4E9F7C?style=for-the-badge)](#quickstart-cli--mcp)
+**[Live 10-in-1 Workbench](https://waterdolphinkiller.github.io/ideastress/)** · **[12-Tool MCP Server](#12-tool-mcp-server-claude-code--cursor--codex)** · **[GitHub Action CI Gate](#github-action-ai-cost--finops-ci-gate)** · **[MIT License](LICENSE)** · `47/47 Tests Passing`
 
 ![IdeaStress v0.8.1 Interactive Demo](assets/ideastress_demo.gif)
 
